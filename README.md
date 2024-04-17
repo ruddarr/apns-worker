@@ -9,6 +9,12 @@ The APNs worker stores device tokens in R2.
 - `AUTHKEY` (encrypted)
 - `WEBHOOK_SECRET` (encrypted)
 
+## Testing
+
+```bash
+cat payloads/health-restored.json | http post https://notify.ruddarr.com/{icloud-user-id} User-Agent:Radarr/1.0
+```
+
 ## WAF
 
 The WAF blocks:
