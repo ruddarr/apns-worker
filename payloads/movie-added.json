@@ -1,0 +1,16 @@
+{
+  "movie": {
+    "id": 284,
+    "title": "Spirited Away",
+    "year": 2001,
+    "releaseDate": "2002-07-19",
+    "folderPath": "/volume2/Media/Movies/Spirited Away (2001)",
+    "tmdbId": 129,
+    "imdbId": "tt0245429",
+    "overview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family."
+  },
+  "addMethod": "manual",
+  "eventType": "MovieAdded",
+  "instanceName": "Radarr",
+  "applicationUrl": ""
+}

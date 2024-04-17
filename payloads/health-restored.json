@@ -1,0 +1,8 @@
+{
+  "level": "warning",
+  "message": "Indexers unavailable due to failures: Blutopia (API) (Prowlarr)",
+  "type": "IndexerStatusCheck",
+  "wikiUrl": "https://wiki.servarr.com/radarr/system#indexers-are-unavailable-due-to-failures",
+  "eventType": "HealthRestored",
+  "instanceName": "Radarr"
+}

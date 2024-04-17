@@ -1,0 +1,17 @@
+{
+  "movie": {
+    "id": 277,
+    "title": "Crimes of the Future",
+    "year": 2022,
+    "releaseDate": "2022-08-09",
+    "folderPath": "/volume2/Media/Movies/Crimes of the Future (2022)",
+    "tmdbId": 819876,
+    "imdbId": "tt14549466",
+    "overview": "With his partner Caprice, celebrity performance artist Saul Tenser publicly showcases the metamorphosis of his organs in avant-garde performances. Timlin, an investigator from the National Organ Registry, obsessively tracks their movements, which is when a mysterious group is revealed... Their mission -- to use Saul's notoriety to shed light on the next phase of human evolution."
+  },
+  "deletedFiles": true,
+  "movieFolderSize": 0,
+  "eventType": "MovieDelete",
+  "instanceName": "Radarr",
+  "applicationUrl": ""
+}

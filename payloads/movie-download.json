@@ -1,0 +1,62 @@
+{
+  "movie": {
+    "id": 284,
+    "title": "Spirited Away",
+    "year": 2001,
+    "releaseDate": "2002-07-19",
+    "folderPath": "/volume2/Media/Movies/Spirited Away (2001)",
+    "tmdbId": 129,
+    "imdbId": "tt0245429",
+    "overview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family."
+  },
+  "remoteMovie": {
+    "tmdbId": 129,
+    "imdbId": "tt0245429",
+    "title": "Spirited Away",
+    "year": 2001
+  },
+  "movieFile": {
+    "id": 242,
+    "relativePath": "Spirited.Away.2002.1080p.BluRay.Dual-Audio.DD+.5.1.x265-NAN0.mkv",
+    "path": "/volume2/Media/#downloads/Spirited.Away.2002.1080p.BluRay.Dual-Audio.DD+.5.1.x265-NAN0.mkv",
+    "quality": "Bluray-1080p",
+    "qualityVersion": 1,
+    "releaseGroup": "NAN0",
+    "sceneName": "Spirited.Away.2002.1080p.BluRay.Dual-Audio.DD+.5.1.x265-NAN0",
+    "indexerFlags": "0",
+    "size": 12729205605,
+    "dateAdded": "2024-02-13T03:05:31.2989497Z",
+    "mediaInfo": {
+      "audioChannels": 5.1,
+      "audioCodec": "EAC3",
+      "audioLanguages": [
+        "jpn",
+        "eng"
+      ],
+      "height": 1036,
+      "width": 1920,
+      "subtitles": [
+        "eng"
+      ],
+      "videoCodec": "x265",
+      "videoDynamicRange": "",
+      "videoDynamicRangeType": ""
+    }
+  },
+  "isUpgrade": false,
+  "downloadClient": "Download Station",
+  "downloadClientType": "Download Station",
+  "downloadId": "7FCF20EEAACD0F7810C11FD62E90076E9A25B76F:dbid_1226",
+  "customFormatInfo": {
+    "customFormats": [],
+    "customFormatScore": 0
+  },
+  "release": {
+    "releaseTitle": "Spirited Away AKA Sen to Chihiro no Kamikakushi 2002 1080p BluRay Dual-Audio DD+ 5.1 x265-NAN0",
+    "indexer": "Blutopia (API) (Prowlarr)",
+    "size": 12729205760
+  },
+  "eventType": "Download",
+  "instanceName": "Radarr",
+  "applicationUrl": ""
+}
