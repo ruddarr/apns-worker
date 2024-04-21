@@ -439,7 +439,7 @@ function buildNotificationPayload(payload) {
 
         if (
           releaseString.includes(` S${seasonPadded} `) &&
-          ! releaseString.contains(` S${seasonPadded}E${episodePadded} `)
+          ! releaseString.includes(` S${seasonPadded}E${episodePadded} `)
         ) {
           return
         }
