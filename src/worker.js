@@ -1,3 +1,10 @@
+// interruption-level = passive ?
+
+// WAF blocks
+// - `method` other than `POST`
+// - `content-type` other than `application/json`
+// - `path` other than `/register` and `/push/+`
+// - `user-agent` other than: `Ruddarr/*`, `Radarr/*` and `Sonarr/*`
 export default {
   async fetch(request, env, context) {
     const { headers } = request
@@ -249,7 +256,7 @@ async function generateAuthorizationToken(env) {
   const jwtPayload = textToBase64Url(JSON.stringify(payload))
 
   const key = await crypto.subtle.importKey(
-    'pkcs8', pemToBinary(env.AUTHKEY), algorithm, true, ['sign']
+    'pkcs8', pemToBinary(env.APPLE_AUTHKEY), algorithm, true, ['sign']
   )
 
   const signature = await crypto.subtle.sign(

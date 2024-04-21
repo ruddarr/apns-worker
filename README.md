@@ -1,18 +1,18 @@
 # Ruddarr APNs Worker
 
-The APNs worker stores device tokens in R2.
+The APNs worker that poweres Ruddarr's push notifications.
 
 ## Environment Variables
 
 - `APPLE_KEYID`
 - `APPLE_TEAMID`
-- `AUTHKEY` (encrypted)
+- `APPLE_AUTHKEY` (encrypted)
 - `WEBHOOK_SECRET` (encrypted)
 
 ## Testing
 
 ```bash
-cat payloads/health-restored.json | http post https://notify.ruddarr.com/{icloud-user-id} User-Agent:Radarr/1.0
+cat payloads/health-restored.json | http post https://notify.ruddarr.com/{CK.UserRecordID} User-Agent:Radarr/1.0
 ```
 
 ## WAF
