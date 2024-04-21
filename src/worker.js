@@ -1,10 +1,3 @@
-// interruption-level = passive ?
-
-// WAF blocks
-// - `method` other than `POST`
-// - `content-type` other than `application/json`
-// - `path` other than `/register` and `/push/+`
-// - `user-agent` other than: `Ruddarr/*`, `Radarr/*` and `Sonarr/*`
 export default {
   async fetch(request, env, context) {
     const { headers } = request
