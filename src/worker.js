@@ -33,7 +33,7 @@ export default {
       }
 
       if (payload.eventType == 'ManualInteractionRequired') {
-        await sendDebugEmail(payload)
+        // await sendDebugEmail(payload)
         return statusResponse(202)
       }
 
@@ -264,17 +264,17 @@ async function generateAuthorizationToken(env) {
 }
 
 function buildNotificationPayload(payload) {
-  const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : '{Instance}'
+  const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : 'Unknown'
   const isSeries = payload.hasOwnProperty('series')
 
-  const title = payload.series?.title ?? payload.movie?.title ?? '{Title}'
-  const year = payload.series?.year ?? payload.movie?.year ?? '{Year}'
+  const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
+  const year = ((yyyy) => yyyy === 0 ? "Unknown" : yyyy)(payload.series?.year ?? payload.movie?.year ?? 0)
   const threadId = payload.series?.tvdbId ?? payload.movie?.tmdbId
 
   const episodes = payload.episodes?.length
   const episode = payload.episodes?.[0].episodeNumber
   const season = payload.episodes?.[0].seasonNumber
-  var message = payload.message?.replace(' (Prowlarr)', '')
+  const message = payload.message?.replace(' (Prowlarr)', '')
 
   switch (payload.eventType) {
     case 'RuddarrTest':
