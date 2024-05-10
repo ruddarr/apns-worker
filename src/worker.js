@@ -360,7 +360,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `series:${threadId}`,
           'relevance-score': 0.6,
         },
-        // deeplink: `ruddarr://series/open/${payload.series?.id}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}`,
         hideInForeground: true,
       }
 
@@ -401,7 +401,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `series:${threadId}`,
           'relevance-score': 0.8,
         },
-        // deeplink: `ruddarr://series/open/${payload.series?.id}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}`,
         hideInForeground: true,
       }
 
@@ -452,7 +452,7 @@ function buildNotificationPayload(payload) {
             'thread-id': `series:${threadId}`,
             'relevance-score': 1.0,
           },
-          // deeplink: `ruddarr://series/open/${payload.series?.id}`,
+          deeplink: `ruddarr://series/open/${payload.series?.id}`,
         }
       }
 
@@ -468,7 +468,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `series:${threadId}`,
           'relevance-score': 1.0,
         },
-        // deeplink: `ruddarr://series/open/${payload.series?.id}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}`,
       }
   }
 }
