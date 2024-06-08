@@ -287,6 +287,7 @@ function buildNotificationPayload(payload) {
           'sound': 'ping.aiff',
           'relevance-score': 0.2,
         },
+        eventType: payload.eventType,
       }
 
     case 'ApplicationUpdate':
@@ -300,6 +301,7 @@ function buildNotificationPayload(payload) {
           'sound': 'ping.aiff',
           'relevance-score': 1.0,
         },
+        eventType: payload.eventType,
       }
 
     case 'Health':
@@ -314,6 +316,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `health:${payload.type}`,
           'relevance-score': 0.8,
         },
+        eventType: `${payload.eventType}:${payload.type}`,
       }
 
     case 'HealthRestored':
@@ -328,6 +331,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `health:${payload.type}`,
           'relevance-score': 1.0,
         },
+        eventType: `${payload.eventType}:${payload.type}`,
       }
 
     case 'MovieAdded':
@@ -343,6 +347,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `movie:${threadId}`,
           'relevance-score': 0.6,
         },
+        eventType: payload.eventType,
         deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
         hideInForeground: true,
       }
@@ -360,6 +365,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `series:${threadId}`,
           'relevance-score': 0.6,
         },
+        eventType: payload.eventType,
         deeplink: `ruddarr://series/open/${payload.series?.id}`,
         hideInForeground: true,
       }
@@ -382,6 +388,7 @@ function buildNotificationPayload(payload) {
             'thread-id': `movie:${threadId}`,
             'relevance-score': 0.8,
           },
+          eventType: payload.eventType,
           deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
           hideInForeground: true,
         }
@@ -401,6 +408,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `series:${threadId}`,
           'relevance-score': 0.8,
         },
+        eventType: payload.eventType,
         deeplink: `ruddarr://series/open/${payload.series?.id}`,
         hideInForeground: true,
       }
@@ -421,6 +429,7 @@ function buildNotificationPayload(payload) {
             'thread-id': `movie:${threadId}`,
             'relevance-score': 1.0,
           },
+          eventType: payload.eventType,
           deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
         }
       }
@@ -452,6 +461,7 @@ function buildNotificationPayload(payload) {
             'thread-id': `series:${threadId}`,
             'relevance-score': 1.0,
           },
+          eventType: payload.eventType,
           deeplink: `ruddarr://series/open/${payload.series?.id}`,
         }
       }
@@ -468,6 +478,7 @@ function buildNotificationPayload(payload) {
           'thread-id': `series:${threadId}`,
           'relevance-score': 1.0,
         },
+        eventType: payload.eventType,
         deeplink: `ruddarr://series/open/${payload.series?.id}`,
       }
   }
