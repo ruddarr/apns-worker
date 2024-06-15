@@ -270,7 +270,7 @@ function buildNotificationPayload(payload) {
   const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
   const year = ((yyyy) => yyyy === 0 ? "Unknown" : yyyy)(payload.series?.year ?? payload.movie?.year ?? 0)
   const threadId = payload.series?.tvdbId ?? payload.movie?.tmdbId
-  const posterUrl = (payload.series ?? payload.movie).images?.find(image => image.coverType === 'poster')?.remoteUrl;
+  const posterUrl = (payload.series ?? payload.movie)?.images?.find(image => image.coverType === 'poster')?.remoteUrl;
 
   const episodes = payload.episodes?.length
   const episode = payload.episodes?.[0].episodeNumber
