@@ -270,6 +270,7 @@ function buildNotificationPayload(payload) {
   const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
   const year = ((yyyy) => yyyy === 0 ? "Unknown" : yyyy)(payload.series?.year ?? payload.movie?.year ?? 0)
   const threadId = payload.series?.tvdbId ?? payload.movie?.tmdbId
+  const posterUrl = (payload.series ?? payload.movie).images?.find(image => image.coverType === 'poster')?.remoteUrl;
 
   const episodes = payload.episodes?.length
   const episode = payload.episodes?.[0].episodeNumber
@@ -346,10 +347,12 @@ function buildNotificationPayload(payload) {
           'sound': 'ping.aiff',
           'thread-id': `movie:${threadId}`,
           'relevance-score': 0.6,
+          'mutable-content': 1,
         },
         eventType: payload.eventType,
-        deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
         hideInForeground: true,
+        deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
+        poster: posterUrl,
       }
 
     case 'SeriesAdd':
@@ -364,10 +367,12 @@ function buildNotificationPayload(payload) {
           'sound': 'ping.aiff',
           'thread-id': `series:${threadId}`,
           'relevance-score': 0.6,
+          'mutable-content': 1,
         },
         eventType: payload.eventType,
-        deeplink: `ruddarr://series/open/${payload.series?.id}`,
         hideInForeground: true,
+        deeplink: `ruddarr://series/open/${payload.series?.id}`,
+        poster: posterUrl,
       }
 
     case 'Grab':
@@ -387,10 +392,12 @@ function buildNotificationPayload(payload) {
             'sound': 'ping.aiff',
             'thread-id': `movie:${threadId}`,
             'relevance-score': 0.8,
+            'mutable-content': 1,
           },
           eventType: payload.eventType,
-          deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
           hideInForeground: true,
+          deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
+          poster: posterUrl,
         }
       }
 
@@ -407,10 +414,12 @@ function buildNotificationPayload(payload) {
           'sound': 'ping.aiff',
           'thread-id': `series:${threadId}`,
           'relevance-score': 0.8,
+          'mutable-content': 1,
         },
         eventType: payload.eventType,
-        deeplink: `ruddarr://series/open/${payload.series?.id}`,
         hideInForeground: true,
+        deeplink: `ruddarr://series/open/${payload.series?.id}`,
+        poster: posterUrl,
       }
 
     case 'Download':
@@ -428,9 +437,11 @@ function buildNotificationPayload(payload) {
             'sound': 'ping.aiff',
             'thread-id': `movie:${threadId}`,
             'relevance-score': 1.0,
+            'mutable-content': 1,
           },
           eventType: payload.eventType,
           deeplink: `ruddarr://movies/open/${payload.movie?.id}`,
+          poster: posterUrl,
         }
       }
 
@@ -460,9 +471,11 @@ function buildNotificationPayload(payload) {
             'sound': 'ping.aiff',
             'thread-id': `series:${threadId}`,
             'relevance-score': 1.0,
+            'mutable-content': 1,
           },
           eventType: payload.eventType,
           deeplink: `ruddarr://series/open/${payload.series?.id}`,
+          poster: posterUrl,
         }
       }
 
@@ -477,9 +490,11 @@ function buildNotificationPayload(payload) {
           'sound': 'ping.aiff',
           'thread-id': `series:${threadId}`,
           'relevance-score': 1.0,
+          'mutable-content': 1,
         },
         eventType: payload.eventType,
         deeplink: `ruddarr://series/open/${payload.series?.id}`,
+        poster: posterUrl,
       }
   }
 }
