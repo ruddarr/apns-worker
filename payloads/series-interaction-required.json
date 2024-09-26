@@ -1,0 +1,92 @@
+{
+  "series": {
+    "id": 165,
+    "title": "Only Murders in the Building",
+    "titleSlug": "only-murders-in-the-building",
+    "path": "/volume2/Media/TV Series/Only Murders in the Building",
+    "tvdbId": 399959,
+    "tvMazeId": 48830,
+    "tmdbId": 107113,
+    "imdbId": "tt11691774",
+    "type": "standard",
+    "year": 2021,
+    "genres": [
+      "Comedy",
+      "Crime",
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ],
+    "images": [
+      {
+        "coverType": "banner",
+        "url": "/MediaCover/165/banner.jpg?lastWrite=638602185973255397",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/399959/banners/60d5cd5481a3e.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/165/poster.jpg?lastWrite=638602185973675402",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/399959/posters/60d5e4a9214e7.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/165/fanart.jpg?lastWrite=638602185974095407",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/399959/backgrounds/60ffe32c785b4.jpg"
+      },
+      {
+        "coverType": "clearlogo",
+        "url": "/MediaCover/165/clearlogo.png?lastWrite=638602185974355410",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/399959/clearlogo/641622126ada7.png"
+      }
+    ],
+    "tags": []
+  },
+  "episodes": [
+    {
+      "id": 19205,
+      "episodeNumber": 5,
+      "seasonNumber": 4,
+      "title": "Adaptation",
+      "overview": "The trio face off against a collection of individuals who deceive, manipulate, and threaten as second nature - a Hollywood cast & crew.",
+      "airDate": "2024-09-24",
+      "airDateUtc": "2024-09-24T04:00:00Z",
+      "seriesId": 165,
+      "tvdbId": 10593229
+    }
+  ],
+  "downloadInfo": {
+    "quality": "WEBDL-1080p",
+    "qualityVersion": 1,
+    "title": "Only.Murders.in.the.Building.S04E05.1080p.WEB.H264-SuccessfulCrab-xsp-",
+    "size": 1504102066
+  },
+  "downloadClient": "SABnzbd",
+  "downloadClientType": "SABnzbd",
+  "downloadId": "SABnzbd_nzo_ybbzwtxe",
+  "downloadStatus": "Warning",
+  "downloadStatusMessages": [
+    {
+      "title": "One or more episodes expected in this release were not imported or missing from the release",
+      "messages": []
+    },
+    {
+      "title": "only.murders.in.the.building.s04e05.1080p.web.h264-successfulcrab-sample.mkv",
+      "messages": [
+        "Sample"
+      ]
+    }
+  ],
+  "customFormatInfo": {
+    "customFormats": [],
+    "customFormatScore": 0
+  },
+  "release": {
+    "releaseTitle": "Only.Murders.in.the.Building.S04E05.1080p.WEB.H264-SuccessfulCrab-xsp-",
+    "indexer": "NinjaCentral (Prowlarr)",
+    "size": 1697394553,
+    "releaseType": "singleEpisode"
+  },
+  "eventType": "ManualInteractionRequired",
+  "instanceName": "Sonarr",
+  "applicationUrl": ""
+}
