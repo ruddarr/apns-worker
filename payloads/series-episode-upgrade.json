@@ -1,0 +1,128 @@
+{
+  "series": {
+    "id": 34,
+    "title": "House of the Dragon",
+    "titleSlug": "house-of-the-dragon",
+    "path": "/volume2/Media/TV Series/House of the Dragon",
+    "tvdbId": 371572,
+    "tvMazeId": 44778,
+    "tmdbId": 94997,
+    "imdbId": "tt11198330",
+    "type": "standard",
+    "year": 2022,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Drama",
+      "Fantasy",
+      "War"
+    ],
+    "images": [
+      {
+        "coverType": "banner",
+        "url": "/MediaCover/34/banner.jpg?lastWrite=638602187065708724",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/371572/banners/62b3c5840f88d.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/34/poster.jpg?lastWrite=638602187066108729",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/371572/posters/624838567e159.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/34/fanart.jpg?lastWrite=638602187066508734",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/371572/backgrounds/62d27eb474e3c.jpg"
+      },
+      {
+        "coverType": "clearlogo",
+        "url": "/MediaCover/34/clearlogo.png?lastWrite=638602187066908739",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/371572/clearlogo/615defff583a8.png"
+      }
+    ],
+    "tags": []
+  },
+  "episodes": [
+    {
+      "id": 3195,
+      "episodeNumber": 4,
+      "seasonNumber": 1,
+      "title": "King of the Narrow Sea",
+      "overview": "After Rhaenyra cuts short her tour of Westeros, Daemon introduces the princess to the Street of Silk after dark.",
+      "airDate": "2022-09-11",
+      "airDateUtc": "2022-09-12T01:00:00Z",
+      "seriesId": 34,
+      "tvdbId": 9082149
+    }
+  ],
+  "episodeFile": {
+    "id": 8592,
+    "relativePath": "Season 1/House.of.the.Dragon.S01E04.King.of.the.Narrow.Sea.2160p.WEBRip.DDP5.1.Atmos.HDR.X.265-EVO.mkv",
+    "path": "/volume2/nzb/complete/House.of.the.Dragon.S01E04.King.of.the.Narrow.Sea.2160p.WEBRip.DDP5.1.Atmos.HDR.X.265-EVO/House.of.the.Dragon.S01E04.King.of.the.Narrow.Sea.2160p.WEBRip.DDP5.1.Atmos.HDR.X.265-EVO.mkv",
+    "quality": "WEBRip-2160p",
+    "qualityVersion": 1,
+    "releaseGroup": "EVO",
+    "sceneName": "House.of.the.Dragon.S01E04.King.of.the.Narrow.Sea.2160p.WEBRip.DDP5.1.Atmos.HDR.X.265-EVO",
+    "size": 2407994613,
+    "dateAdded": "2024-09-26T21:48:37.4969803Z",
+    "mediaInfo": {
+      "audioChannels": 5.1,
+      "audioCodec": "EAC3 Atmos",
+      "audioLanguages": [
+        "eng"
+      ],
+      "height": 2160,
+      "width": 3840,
+      "subtitles": [],
+      "videoCodec": "x265",
+      "videoDynamicRange": "HDR",
+      "videoDynamicRangeType": "HDR10"
+    }
+  },
+  "isUpgrade": true,
+  "downloadClient": "SABnzbd",
+  "downloadClientType": "SABnzbd",
+  "downloadId": "SABnzbd_nzo_50vw3af9",
+  "deletedFiles": [
+    {
+      "id": 970,
+      "relativePath": "House.of.the.Dragon.S01E04.1080p.HMAX.WEB-DL.DDP5.1.Atmos.x264-EVO.mkv",
+      "path": "/volume2/Media/TV Series/House of the Dragon/House.of.the.Dragon.S01E04.1080p.HMAX.WEB-DL.DDP5.1.Atmos.x264-EVO.mkv",
+      "quality": "WEBDL-1080p",
+      "qualityVersion": 1,
+      "releaseGroup": "EVO",
+      "size": 4222656691,
+      "dateAdded": "2023-08-28T01:29:42.1400389Z",
+      "mediaInfo": {
+        "audioChannels": 5.1,
+        "audioCodec": "EAC3 Atmos",
+        "audioLanguages": [
+          "eng"
+        ],
+        "height": 1080,
+        "width": 1920,
+        "subtitles": [],
+        "videoCodec": "x264",
+        "videoDynamicRange": "",
+        "videoDynamicRangeType": ""
+      }
+    }
+  ],
+  "customFormatInfo": {
+    "customFormats": [
+      {
+        "id": 5,
+        "name": "x265"
+      }
+    ],
+    "customFormatScore": 100
+  },
+  "release": {
+    "releaseTitle": "House.of.the.Dragon.S01E04.King.of.the.Narrow.Sea.2160p.WEBRip.DDP5.1.Atmos.HDR.X.265-EVO",
+    "indexer": "NinjaCentral (Prowlarr)",
+    "size": 2484811711,
+    "releaseType": "singleEpisode"
+  },
+  "eventType": "Download",
+  "instanceName": "Sonarr",
+  "applicationUrl": ""
+}
