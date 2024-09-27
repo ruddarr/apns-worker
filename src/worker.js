@@ -33,8 +33,7 @@ export default {
       }
 
       if (payload.eventType == 'ManualInteractionRequired') {
-        // await sendDebugEmail(payload)
-        return statusResponse(202)
+        await sendDebugEmail(payload)
       }
 
       console.info(`Type: ${payload.eventType}`)
@@ -149,7 +148,7 @@ async function handleWebhook(env, account, payload) {
   const entitledAt = data?.entitledAt ?? 0
 
   if (daysSince(entitledAt) > 30) {
-    return statusResponse(410, 'device entitlement expired')
+    return statusResponse(402, 'device entitlement expired')
   }
 
   const notification = buildNotificationPayload(payload)
@@ -433,6 +432,7 @@ function buildNotificationPayload(payload) {
               'title-loc-args': [instanceName],
               'loc-key': 'NOTIFICATION_MOVIE_DOWNLOAD_BODY',
               'loc-args': [title, year],
+              
             },
             'sound': 'ping.aiff',
             'thread-id': `movie:${threadId}`,
@@ -467,6 +467,7 @@ function buildNotificationPayload(payload) {
               'title-loc-args': [instanceName],
               'loc-key': 'NOTIFICATION_EPISODE_DOWNLOAD_BODY',
               'loc-args': [title, season, episode],
+              // `Upgraded from deletedFiles[0].quality to episodeFile.quality`
             },
             'sound': 'ping.aiff',
             'thread-id': `series:${threadId}`,
@@ -495,6 +496,25 @@ function buildNotificationPayload(payload) {
         eventType: payload.eventType,
         deeplink: `ruddarr://series/open/${payload.series?.id}`,
         poster: posterUrl,
+      }
+
+    case 'ManualInteractionRequired':
+      return {
+        aps: {
+          'alert': {
+            'title-loc-key': 'NOTIFICATION_MANUAL_INTERACTION_REQUIRED',
+            'title-loc-args': [instanceName],
+            'subtitle': payload.downloadInfo.title,
+            'body': payload.downloadStatusMessages[0].title,
+          },
+          'sound': 'ping.aiff',
+          'thread-id': `download:${payload.downloadId}`,
+          'relevance-score': 1.0,
+          'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
+        deeplink: 'ruddarr://activity',
       }
   }
 }
@@ -525,7 +545,9 @@ async function verifySignature(env, signature, message) {
     encoder.encode(message)
   )
 
-  console.info(`Signature: ${verified} (${signature}, ${message})`)
+  const days = daysSince(message.split(':')[0])
+
+  console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
 
   return verified
 }
