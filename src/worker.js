@@ -504,8 +504,10 @@ function buildNotificationPayload(payload) {
           'alert': {
             'title-loc-key': 'NOTIFICATION_MANUAL_INTERACTION_REQUIRED',
             'title-loc-args': [instanceName],
-            'subtitle': payload.downloadInfo.title,
-            'body': payload.downloadStatusMessages[0].title,
+            'subtitle': payload.release.releaseTitle,
+            'body': payload.downloadStatusMessages.find(
+              item => item.messages && item.messages.length > 0
+            )?.messages[0] ?? payload.downloadStatusMessages[0].title,
           },
           'sound': 'ping.aiff',
           'thread-id': `download:${payload.downloadId}`,
@@ -513,7 +515,6 @@ function buildNotificationPayload(payload) {
           'mutable-content': 1,
         },
         eventType: payload.eventType,
-        hideInForeground: true,
         deeplink: 'ruddarr://activity',
       }
   }
