@@ -33,7 +33,7 @@ export default {
       }
 
       if (payload.eventType == 'ManualInteractionRequired') {
-        await sendDebugEmail(payload)
+        // await sendDebugEmail(env, payload)
       }
 
       console.info(`Type: ${payload.eventType}`)
@@ -604,13 +604,13 @@ function base64StringToArrayBuffer(b64str) {
   return byteStringToBytes(atob(b64str)).buffer
 }
 
-async function sendDebugEmail(payload) {
+async function sendDebugEmail(env, payload) {
   await fetch('https://api.postmarkapp.com/email', {
     method: 'POST',
     headers: {
       'accept': 'application/json',
       'content-type': 'application/json;charset=UTF-8',
-      'x-postmark-server-token': '8ec6187d-5c62-460e-9293-2a9cbe4f8760',
+      'x-postmark-server-token': env.POSTMARK_TOKEN,
     },
     body: JSON.stringify({
       'From': 'worker@till.im',
