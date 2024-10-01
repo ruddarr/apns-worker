@@ -272,8 +272,8 @@ function buildNotificationPayload(payload) {
   const posterUrl = (payload.series ?? payload.movie)?.images?.find(image => image.coverType === 'poster')?.remoteUrl;
 
   const episodes = payload.episodes?.length
-  const episode = payload.episodes?.[0].episodeNumber
-  const season = payload.episodes?.[0].seasonNumber
+  const episode = payload.episodes?.[0]?.episodeNumber
+  const season = payload.episodes?.[0]?.seasonNumber
   const message = payload.message?.replace(' (Prowlarr)', '')
 
   switch (payload.eventType) {
@@ -499,15 +499,17 @@ function buildNotificationPayload(payload) {
       }
 
     case 'ManualInteractionRequired':
+      const statusMessage = payload.downloadStatusMessages?.find(
+        item => item.messages && item.messages.length > 0
+      )?.messages[0] ?? payload?.downloadStatusMessages?.[0].title ?? null
+
       return {
         aps: {
           'alert': {
             'title-loc-key': 'NOTIFICATION_MANUAL_INTERACTION_REQUIRED',
             'title-loc-args': [instanceName],
-            'subtitle': payload.release.releaseTitle,
-            'body': payload.downloadStatusMessages.find(
-              item => item.messages && item.messages.length > 0
-            )?.messages[0] ?? payload.downloadStatusMessages[0].title,
+            'subtitle': statusMessage ? payload.release.releaseTitle : null,
+            'body': statusMessage ? statusMessage : payload.release.releaseTitle,
           },
           'sound': 'ping.aiff',
           'thread-id': `download:${payload.downloadId}`,
