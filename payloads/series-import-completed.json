@@ -1,0 +1,96 @@
+{
+  "series": {
+    "id": 360,
+    "title": "Your Honor",
+    "titleSlug": "your-honor",
+    "path": "/volume2/Media/TV Series/Your Honor",
+    "tvdbId": 359579,
+    "tvMazeId": 32791,
+    "tmdbId": 86430,
+    "imdbId": "tt7440726",
+    "type": "standard",
+    "year": 2020,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "images": [
+      {
+        "coverType": "banner",
+        "url": "/MediaCover/360/banner.jpg?lastWrite=638636501033462740",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/series/359579/banners/5fa16a2164702.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/360/poster.jpg?lastWrite=638636501044092904",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/359579/posters/63e0ecef1c896.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/360/fanart.jpg?lastWrite=638636501044852916",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/series/359579/backgrounds/60220f658fa99.jpg"
+      },
+      {
+        "coverType": "clearlogo",
+        "url": "/MediaCover/360/clearlogo.png?lastWrite=638636501045082919",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/359579/clearlogo/611ca7bd133ff.png"
+      }
+    ],
+    "tags": []
+  },
+  "episodes": [
+    {
+      "id": 21994,
+      "episodeNumber": 1,
+      "seasonNumber": 2,
+      "title": "Part Eleven",
+      "overview": "Picking up in the aftermath of a terrible accident, a grieving Michael Desiato is beyond hope. After fleeing the scene, Eugene is aided by unlikely benefactors, including new Mayor Charlie Figaro, Big Mo and the police. Jimmy Baxter looks to expand his criminal empire, while Gina Baxter channels her anger over her dead son. The arrival in town of Assistant U.S. Attorney Olivia Delmont will upend Michael’s life in ways he can’t begin to imagine.",
+      "airDate": "2023-01-15",
+      "airDateUtc": "2023-01-16T02:00:00Z",
+      "seriesId": 360,
+      "tvdbId": 9308052
+    }
+  ],
+  "episodeFiles": [
+    {
+      "id": 9090,
+      "relativePath": "Season 2/Your.Honor.S02E01.DVDRip.x264-TABULARiA.mkv",
+      "path": "/volume2/nzb/complete/Your.Honor.S02E01.DVDRip.x264-TABULARiA/Your.Honor.S02E01.DVDRip.x264-TABULARiA.mkv",
+      "quality": "DVD",
+      "qualityVersion": 1,
+      "releaseGroup": "TABULARiA",
+      "sceneName": "Your.Honor.S02E01.DVDRip.x264-TABULARiA",
+      "size": 238202670,
+      "dateAdded": "2024-10-05T20:55:48.9274009Z",
+      "mediaInfo": {
+        "audioChannels": 2.0,
+        "audioCodec": "AAC",
+        "audioLanguages": [
+          "eng"
+        ],
+        "height": 304,
+        "width": 720,
+        "subtitles": [],
+        "videoCodec": "x264",
+        "videoDynamicRange": "",
+        "videoDynamicRangeType": ""
+      }
+    }
+  ],
+  "downloadClient": "SABnzbd",
+  "downloadClientType": "SABnzbd",
+  "downloadId": "SABnzbd_nzo_y4lqhm46",
+  "release": {
+    "releaseTitle": "Your.Honor.S02E01.DVDRip.x264-TABULARiA",
+    "indexer": "NinjaCentral (Prowlarr)",
+    "size": 245806360,
+    "releaseType": "singleEpisode"
+  },
+  "fileCount": 1,
+  "sourcePath": "/volume2/nzb/complete/Your.Honor.S02E01.DVDRip.x264-TABULARiA",
+  "destinationPath": "/volume2/Media/TV Series/Your Honor/Season 2",
+  "eventType": "Download",
+  "instanceName": "Sonarr",
+  "applicationUrl": ""
+}
