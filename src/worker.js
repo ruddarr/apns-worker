@@ -264,6 +264,7 @@ async function generateAuthorizationToken(env) {
 
 function buildNotificationPayload(payload) {
   const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : 'Unknown'
+  const encodedInstanceName = encodeURIComponent(instanceName)
   const isSeries = payload.hasOwnProperty('series')
 
   const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
@@ -350,7 +351,7 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
-        deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${instanceName}`,
+        deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
@@ -370,7 +371,7 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
-        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${instanceName}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
@@ -395,7 +396,7 @@ function buildNotificationPayload(payload) {
           },
           eventType: payload.eventType,
           hideInForeground: true,
-          deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${instanceName}`,
+          deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${encodedInstanceName}`,
           poster: posterUrl,
         }
       }
@@ -417,7 +418,7 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
-        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${instanceName}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
@@ -440,7 +441,7 @@ function buildNotificationPayload(payload) {
             'mutable-content': 1,
           },
           eventType: payload.eventType,
-          deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${instanceName}`,
+          deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${encodedInstanceName}`,
           poster: posterUrl,
         }
       }
@@ -475,7 +476,7 @@ function buildNotificationPayload(payload) {
             'mutable-content': 1,
           },
           eventType: payload.eventType,
-          deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${instanceName}`,
+          deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
           poster: posterUrl,
         }
       }
@@ -494,7 +495,7 @@ function buildNotificationPayload(payload) {
           'mutable-content': 1,
         },
         eventType: payload.eventType,
-        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${instanceName}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
