@@ -418,7 +418,7 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
-        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
@@ -476,7 +476,7 @@ function buildNotificationPayload(payload) {
             'mutable-content': 1,
           },
           eventType: payload.eventType,
-          deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
+          deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`,
           poster: posterUrl,
         }
       }
@@ -495,7 +495,7 @@ function buildNotificationPayload(payload) {
           'mutable-content': 1,
         },
         eventType: payload.eventType,
-        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
