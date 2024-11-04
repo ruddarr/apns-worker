@@ -376,7 +376,7 @@ function buildNotificationPayload(payload) {
       }
 
     case 'Grab':
-      const indexerName = payload.release.indexer.replace(' (Prowlarr)', '')
+      const indexerName = formatIndexer(payload.release.indexer)
 
       if (! isSeries) {
         return {
@@ -555,6 +555,32 @@ async function verifySignature(env, signature, message) {
   console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
 
   return verified
+}
+
+function formatIndexer(name) {
+  if (name.endsWith(' (Prowlarr)')) {
+    name = name.slice(0, -11);
+  }
+
+  if (name.endsWith(' (API)')) {
+    name = name.slice(0, -6);
+  }
+
+  switch (name) {
+    case 'BeyondHD': return 'BHD'
+    case 'Blutopia': return 'BLU'
+    case 'BroadcasTheNet': return 'BTN'
+    case 'FileList': return 'FL'
+    case 'HDBits': return 'HDB'
+    case 'IPTorrents': return 'IPT'
+    case 'MyAnonaMouse': return 'MAM'
+    case 'PassThePopcorn': return 'PTP'
+    case 'REDacted': return 'RED'
+    case 'TorrentDay': return 'TD'
+    case 'TorrentLeech': return 'TL'
+    case 'DrunkenSlug': return 'DS'
+    default: return name
+  }
 }
 
 /**
