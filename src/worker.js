@@ -418,7 +418,9 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
-        deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`,
+        deeplink: episodes > 1
+          ? `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`
+          : `ruddarr://series/open/${payload.series?.id}?season=${season}&episode=${episode}&instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
@@ -468,7 +470,6 @@ function buildNotificationPayload(payload) {
               'title-loc-args': [instanceName],
               'loc-key': 'NOTIFICATION_EPISODE_DOWNLOAD_BODY',
               'loc-args': [title, season, episode],
-              // `Upgraded from deletedFiles[0].quality to episodeFile.quality`
             },
             'sound': 'ping.aiff',
             'thread-id': `series:${threadId}`,
@@ -476,7 +477,7 @@ function buildNotificationPayload(payload) {
             'mutable-content': 1,
           },
           eventType: payload.eventType,
-          deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`,
+          deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&episode=${episode}&instance=${encodedInstanceName}`,
           poster: posterUrl,
         }
       }
