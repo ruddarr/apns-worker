@@ -32,8 +32,8 @@ export default {
         return statusResponse(202)
       }
 
-      if (payload.eventType == 'ManualInteractionRequired') {
-        // await sendDebugEmail(env, payload)
+      if (payload.eventType == 'Download' && payload.isUpgrade) {
+        // await sendDebugEmail('upgrade event', payload, env)
       }
 
       console.info(`Type: ${payload.eventType}`)
@@ -60,8 +60,6 @@ function isValidWebhookRequest(url, payload) {
   }
 
   const { timestamp, account } = parsePushUrl(url)
-
-  console.info(timestamp, account)
 
   if (isNaN(timestamp) || timestamp < 1700000000) {
     return false
@@ -427,6 +425,13 @@ function buildNotificationPayload(payload) {
     case 'Download':
       const subtype = payload.isUpgrade ? 'UPGRADE' : 'DOWNLOAD'
 
+      // const fromQuality = payload.isUpgrade ? payload.deletedFiles[0].quality : null
+      // const toQuality = payload.isUpgrade ? payload.episodeFile.quality : null
+
+      if (payload.isUpgrade) {
+        
+      }
+
       if (! isSeries) {
         return {
           aps: {
@@ -435,7 +440,6 @@ function buildNotificationPayload(payload) {
               'title-loc-args': [instanceName],
               'loc-key': 'NOTIFICATION_MOVIE_DOWNLOAD_BODY',
               'loc-args': [title, year],
-              
             },
             'sound': 'ping.aiff',
             'thread-id': `movie:${threadId}`,
@@ -527,7 +531,12 @@ function buildNotificationPayload(payload) {
 async function verifyWebhookSignature(env, headers, message) {
   const auth = headers.get('Authorization') || ''
   const bearer = auth.replace(/^Basic /, '').trim()
-  const [username, password] = atob(bearer).split(':')
+
+  if (! bearer.length) {
+    return false
+  }
+
+  const [_, password] = atob(bearer).split(':')
 
   return await verifySignature(env, password, message)
 }
@@ -634,7 +643,7 @@ function base64StringToArrayBuffer(b64str) {
   return byteStringToBytes(atob(b64str)).buffer
 }
 
-async function sendDebugEmail(env, payload) {
+async function sendDebugEmail(subject, payload, env) {
   await fetch('https://api.postmarkapp.com/email', {
     method: 'POST',
     headers: {
@@ -645,7 +654,7 @@ async function sendDebugEmail(env, payload) {
     body: JSON.stringify({
       'From': 'worker@till.im',
       'To': 'ruddarr@icloud.com',
-      'Subject': 'ManualInteractionRequired',
+      'Subject': subject,
       'TextBody': JSON.stringify(payload, null, 4)
     }),
   })
