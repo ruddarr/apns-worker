@@ -1,0 +1,67 @@
+{
+  "movie": {
+    "id": 130,
+    "title": "Upside-Down Magic",
+    "year": 2020,
+    "releaseDate": "2020-11-11",
+    "folderPath": "/volume2/Media/Movies/Upside-Down Magic (2020)",
+    "tmdbId": 671583,
+    "imdbId": "tt10833270",
+    "overview": "Nory and her best friend Reina enter the Sage Academy for Magical Studies, where Nory’s unconventional powers land her in a class for those with wonky, or “upside-down,” magic. Undaunted, Nory sets out to prove that that upside-down magic can be just as powerful as right-side-up.",
+    "genres": [
+      "Fantasy",
+      "Family",
+      "TV Movie"
+    ],
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/130/poster.jpg?lastWrite=638799702844182423",
+        "remoteUrl": "https://image.tmdb.org/t/p/original/r2MfnMmFzGvRvjGVLIuyx3R16a6.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/130/fanart.jpg?lastWrite=638773675068716486",
+        "remoteUrl": "https://image.tmdb.org/t/p/original/1SZuV2Qp1RD13MhdTdqTGBVhcyc.jpg"
+      }
+    ],
+    "tags": [],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    }
+  },
+  "movieFile": {
+    "id": 78,
+    "relativePath": "Upside-Down Magic (2020).mp4",
+    "path": "/volume2/Media/Movies/Upside-Down Magic (2020)/Upside-Down Magic (2020).mp4",
+    "quality": "HDTV-1080p",
+    "qualityVersion": 1,
+    "indexerFlags": "0",
+    "size": 1899728610,
+    "dateAdded": "2023-09-04T18:12:08.7778445Z",
+    "languages": [
+      {
+        "id": 1,
+        "name": "English"
+      }
+    ],
+    "mediaInfo": {
+      "audioChannels": 5.1,
+      "audioCodec": "AAC",
+      "audioLanguages": [
+        "und"
+      ],
+      "height": 1072,
+      "width": 1920,
+      "subtitles": [],
+      "videoCodec": "x264",
+      "videoDynamicRange": "",
+      "videoDynamicRangeType": ""
+    }
+  },
+  "deleteReason": "manual",
+  "eventType": "MovieFileDelete",
+  "instanceName": "Radarr",
+  "applicationUrl": ""
+}
