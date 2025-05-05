@@ -1,13 +1,29 @@
 {
   "movie": {
-    "id": 277,
-    "title": "Crimes of the Future",
-    "year": 2022,
-    "releaseDate": "2022-08-09",
-    "folderPath": "/volume2/Media/Movies/Crimes of the Future (2022)",
-    "tmdbId": 819876,
-    "imdbId": "tt14549466",
-    "overview": "With his partner Caprice, celebrity performance artist Saul Tenser publicly showcases the metamorphosis of his organs in avant-garde performances. Timlin, an investigator from the National Organ Registry, obsessively tracks their movements, which is when a mysterious group is revealed... Their mission -- to use Saul's notoriety to shed light on the next phase of human evolution."
+    "id": 721,
+    "title": "I Am Legend 2",
+    "year": 0,
+    "releaseDate": "9999-12-31",
+    "folderPath": "/volume2/Media/Movies/I Am Legend 2 ()",
+    "tmdbId": 945956,
+    "imdbId": "tt18412222",
+    "overview": "A sequel to the 2007 film I Am Legend.",
+    "genres": [
+      "Science Fiction",
+      "Thriller"
+    ],
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/721/poster.jpg?lastWrite=638820603390789889",
+        "remoteUrl": "https://image.tmdb.org/t/p/original/lFguqj7gy0lwkbcG4ThCp5kzMw6.jpg"
+      }
+    ],
+    "tags": [],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    }
   },
   "deletedFiles": true,
   "movieFolderSize": 0,
