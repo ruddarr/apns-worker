@@ -353,6 +353,25 @@ function buildNotificationPayload(payload) {
         poster: posterUrl,
       }
 
+    case 'MovieDelete':
+      return {
+        aps: {
+          'alert': {
+            'title-loc-key': 'NOTIFICATION_MOVIE_DELETED',
+            'title-loc-args': [instanceName],
+            'loc-key': 'NOTIFICATION_MOVIE_DELETED_BODY',
+            'loc-args': [title, year],
+          },
+          'sound': 'ping.aiff',
+          'thread-id': `movie:${threadId}`,
+          'relevance-score': 0.6,
+          'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
+        poster: posterUrl,
+      }
+
     case 'SeriesAdd':
       return {
         aps: {
@@ -370,6 +389,25 @@ function buildNotificationPayload(payload) {
         eventType: payload.eventType,
         hideInForeground: true,
         deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
+        poster: posterUrl,
+      }
+
+    case 'SeriesDelete':
+      return {
+        aps: {
+          'alert': {
+            'title-loc-key': 'NOTIFICATION_SERIES_DELETED',
+            'title-loc-args': [instanceName],
+            'loc-key': 'NOTIFICATION_SERIES_DELETED_BODY',
+            'loc-args': [title, year],
+          },
+          'sound': 'ping.aiff',
+          'thread-id': `series:${threadId}`,
+          'relevance-score': 0.6,
+          'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
         poster: posterUrl,
       }
 
@@ -424,9 +462,6 @@ function buildNotificationPayload(payload) {
 
     case 'Download':
       const subtype = payload.isUpgrade ? 'UPGRADE' : 'DOWNLOAD'
-
-      // const fromQuality = payload.isUpgrade ? payload.deletedFiles[0].quality : null
-      // const toQuality = payload.isUpgrade ? payload.episodeFile.quality : null
 
       if (payload.isUpgrade) {
         
