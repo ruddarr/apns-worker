@@ -354,6 +354,7 @@ function buildNotificationPayload(payload) {
       }
 
     case 'MovieDelete':
+      // "deletedFiles": true, "movieFolderSize": 24646765223,
       return {
         aps: {
           'alert': {
@@ -393,6 +394,7 @@ function buildNotificationPayload(payload) {
       }
 
     case 'SeriesDelete':
+      // "deletedFiles": true
       return {
         aps: {
           'alert': {
