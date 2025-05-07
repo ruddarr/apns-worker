@@ -399,10 +399,33 @@ function buildNotificationPayload(payload) {
         }
       }
 
+      if (episodes === 1) {
+        return {
+          aps: {
+            'alert': {
+              'title-loc-key': 'NOTIFICATION_EPISODE_GRAB',
+              'title-loc-args': [instanceName],
+              'subtitle-loc-key': 'NOTIFICATION_EPISODE_GRAB_SUBTITLE',
+              'subtitle-loc-args': [title, season, episode],
+              'loc-key': 'NOTIFICATION_EPISODES_GRAB_BODY',
+              'loc-args': [payload.release.quality, indexerName],
+            },
+            'sound': 'ping.aiff',
+            'thread-id': `series:${threadId}`,
+            'relevance-score': 0.8,
+            'mutable-content': 1,
+          },
+          eventType: payload.eventType,
+          hideInForeground: true,
+          deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&episode=${episode}&instance=${encodedInstanceName}`,
+          poster: posterUrl,
+        }
+      }
+
       return {
         aps: {
           'alert': {
-            'title-loc-key': episodes > 1 ? 'NOTIFICATION_EPISODES_GRAB' : 'NOTIFICATION_EPISODE_GRAB',
+            'title-loc-key': 'NOTIFICATION_EPISODES_GRAB',
             'title-loc-args': [instanceName, episodes],
             'subtitle-loc-key': 'NOTIFICATION_EPISODES_GRAB_SUBTITLE',
             'subtitle-loc-args': [title, season],
@@ -416,20 +439,16 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
-        deeplink: episodes > 1
-          ? `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`
-          : `ruddarr://series/open/${payload.series?.id}?season=${season}&episode=${episode}&instance=${encodedInstanceName}`,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
     case 'Download':
       const subtype = payload.isUpgrade ? 'UPGRADE' : 'DOWNLOAD'
 
-      // const fromQuality = payload.isUpgrade ? payload.deletedFiles[0].quality : null
-      // const toQuality = payload.isUpgrade ? payload.episodeFile.quality : null
-
       if (payload.isUpgrade) {
-        
+        // const fromQuality = payload.isUpgrade ? payload.deletedFiles[0].quality : null
+        // const toQuality = payload.isUpgrade ? payload.episodeFile.quality : null
       }
 
       if (! isSeries) {
