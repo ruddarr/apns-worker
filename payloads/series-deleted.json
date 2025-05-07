@@ -1,0 +1,44 @@
+{
+  "series": {
+    "id": 169,
+    "title": "Mountain Monsters",
+    "titleSlug": "mountain-monsters",
+    "path": "/volume2/Media/TV Series/Mountain Monsters",
+    "tvdbId": 271005,
+    "tvMazeId": 5522,
+    "tmdbId": 64728,
+    "imdbId": "tt3019170",
+    "type": "standard",
+    "year": 2013,
+    "genres": [
+      "Adventure",
+      "Reality"
+    ],
+    "images": [
+      {
+        "coverType": "banner",
+        "url": "/MediaCover/169/banner.jpg?lastWrite=638602185954495168",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/graphical/5d5df6cce5183.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/169/poster.jpg?lastWrite=638602185955165176",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/posters/271005-1.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/169/fanart.jpg?lastWrite=638602185955725183",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/fanart/original/271005-4.jpg"
+      }
+    ],
+    "tags": [],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    }
+  },
+  "deletedFiles": true,
+  "eventType": "SeriesDelete",
+  "instanceName": "Sonarr",
+  "applicationUrl": ""
+}

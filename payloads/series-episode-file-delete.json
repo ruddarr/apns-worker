@@ -1,0 +1,89 @@
+{
+  "series": {
+    "id": 71,
+    "title": "The New Pope",
+    "titleSlug": "the-new-pope",
+    "path": "/volume2/Media/TV Series/The New Pope",
+    "tvdbId": 376058,
+    "tvMazeId": 41210,
+    "tmdbId": 88408,
+    "imdbId": "tt7157248",
+    "type": "standard",
+    "year": 2020,
+    "genres": [
+      "Drama"
+    ],
+    "images": [
+      {
+        "coverType": "banner",
+        "url": "/MediaCover/71/banner.jpg?lastWrite=638602187160719883",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/series/376058/banners/62060323.jpg"
+      },
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/71/poster.jpg?lastWrite=638602187161109888",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/series/376058/posters/62059483.jpg"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/71/fanart.jpg?lastWrite=638602187161539893",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/series/376058/backgrounds/62059323.jpg"
+      },
+      {
+        "coverType": "clearlogo",
+        "url": "/MediaCover/71/clearlogo.png?lastWrite=638602187161999899",
+        "remoteUrl": "https://artworks.thetvdb.com/banners/v4/series/376058/clearlogo/611d080f70869.png"
+      }
+    ],
+    "tags": [],
+    "originalLanguage": {
+      "id": 1,
+      "name": "English"
+    }
+  },
+  "episodes": [
+    {
+      "id": 5621,
+      "episodeNumber": 1,
+      "seasonNumber": 1,
+      "title": "Episode 1",
+      "overview": "Following his sudden heart attack, Pope Pius XIII lies in a coma while his followers fervently pray for a miraculous recovery. As the threat of terrorism and the potential risks of Pius's idolatry loom, Secretary of State Cardinal Voiello is pressured to bring a new pope to power and, with the conclave at a deadlock, makes a hasty move that throws the Church into even greater chaos.",
+      "airDate": "2020-01-10",
+      "airDateUtc": "2020-01-10T20:00:00Z",
+      "seriesId": 71,
+      "tvdbId": 7551832
+    }
+  ],
+  "episodeFile": {
+    "id": 1864,
+    "relativePath": "the new pope s01e01.mkv",
+    "path": "/volume2/Media/TV Series/The New Pope/the new pope s01e01.mkv",
+    "quality": "HDTV-1080p",
+    "qualityVersion": 1,
+    "size": 2180212094,
+    "dateAdded": "2023-08-28T01:32:13.3985912Z",
+    "languages": [
+      {
+        "id": 1,
+        "name": "English"
+      }
+    ],
+    "mediaInfo": {
+      "audioChannels": 5.1,
+      "audioCodec": "EAC3",
+      "audioLanguages": [],
+      "height": 1080,
+      "width": 1920,
+      "subtitles": [
+        "eng"
+      ],
+      "videoCodec": "h264",
+      "videoDynamicRange": "",
+      "videoDynamicRangeType": ""
+    }
+  },
+  "deleteReason": "manual",
+  "eventType": "EpisodeFileDelete",
+  "instanceName": "Sonarr",
+  "applicationUrl": ""
+}
