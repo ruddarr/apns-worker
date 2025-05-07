@@ -373,6 +373,26 @@ function buildNotificationPayload(payload) {
         poster: posterUrl,
       }
 
+    case 'MovieFileDelete':
+      return {
+        aps: {
+          'alert': {
+            'title-loc-key': 'NOTIFICATION_MOVIE_FILE_DELETED',
+            'title-loc-args': [instanceName],
+            'loc-key': 'NOTIFICATION_MOVIE_FILE_DELETED_BODY',
+            'loc-args': [title, year],
+          },
+          'sound': 'ping.aiff',
+          'thread-id': `movie:${threadId}`,
+          'relevance-score': 0.6,
+          'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
+        deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${encodedInstanceName}`,
+        poster: posterUrl,
+      }
+
     case 'SeriesAdd':
       return {
         aps: {
@@ -410,6 +430,26 @@ function buildNotificationPayload(payload) {
         },
         eventType: payload.eventType,
         hideInForeground: true,
+        poster: posterUrl,
+      }
+
+    case 'EpisodeFileDelete':
+      return {
+        aps: {
+          'alert': {
+            'title-loc-key': 'NOTIFICATION_EPISODE_FILE_DELETED',
+            'title-loc-args': [instanceName],
+            'loc-key': 'NOTIFICATION_EPISODE_FILE_DELETED_BODY',
+            'loc-args': [title, year],
+          },
+          'sound': 'ping.aiff',
+          'thread-id': `series:${threadId}`,
+          'relevance-score': 0.6,
+          'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
+        deeplink: `ruddarr://series/open/${payload.series?.id}?instance=${encodedInstanceName}`,
         poster: posterUrl,
       }
 
