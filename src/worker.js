@@ -524,18 +524,39 @@ function buildNotificationPayload(payload) {
       }
 
     case 'Download':
-      const subtype = payload.isUpgrade ? 'UPGRADE' : 'DOWNLOAD'
-
       if (payload.isUpgrade) {
-        // const fromQuality = payload.isUpgrade ? payload.deletedFiles[0].quality : null
-        // const toQuality = payload.isUpgrade ? payload.episodeFile.quality : null
+        const deletedQuality = payload.deletedFiles.find(
+          file => typeof file.quality === 'string' && file.quality.trim().length > 0
+        )?.quality ?? 'Unknown'
+      }
+
+      if (! isSeries && payload.isUpgrade) {
+        return {
+          aps: {
+            'alert': {
+              'title-loc-key': `NOTIFICATION_MOVIE_UPGRADE`,
+              'title-loc-args': [instanceName],
+              'subtitle-loc-key': `NOTIFICATION_MOVIE_UPGRADE_SUBTITLE`,
+              'subtitle-loc-args': [title, year],
+              'loc-key': 'NOTIFICATION_MOVIE_DOWNLOAD_BODY',
+              'loc-args': [deletedQuality, payload.movieFile.quality],
+            },
+            'sound': 'ping.aiff',
+            'thread-id': `movie:${threadId}`,
+            'relevance-score': 1.0,
+            'mutable-content': 1,
+          },
+          eventType: payload.eventType,
+          deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${encodedInstanceName}`,
+          poster: posterUrl,
+        }
       }
 
       if (! isSeries) {
         return {
           aps: {
             'alert': {
-              'title-loc-key': `NOTIFICATION_MOVIE_${subtype}`,
+              'title-loc-key': `NOTIFICATION_MOVIE_DOWNLOAD`,
               'title-loc-args': [instanceName],
               'loc-key': 'NOTIFICATION_MOVIE_DOWNLOAD_BODY',
               'loc-args': [title, year],
