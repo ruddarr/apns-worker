@@ -32,8 +32,8 @@ export default {
         return statusResponse(202)
       }
 
-      if (payload.eventType == 'MovieFileDelete' || payload.eventType == 'EpisodeFileDelete') {
-        await sendDebugEmail('file delete event', payload, env)
+      if (['MovieFileDelete', 'EpisodeFileDelete', 'Grab', 'Download'].includes(payload.eventType)) {
+        await sendDebugEmail(payload.eventType, payload, env)
       }
 
       console.info(`Type: ${payload.eventType}`)
