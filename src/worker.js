@@ -32,8 +32,8 @@ export default {
         return statusResponse(202)
       }
 
-      if (payload.eventType == 'Download' && payload.isUpgrade) {
-        // await sendDebugEmail('upgrade event', payload, env)
+      if (payload.eventType == 'MovieFileDelete' || payload.eventType == 'EpisodeFileDelete') {
+        await sendDebugEmail('file delete event', payload, env)
       }
 
       console.info(`Type: ${payload.eventType}`)
