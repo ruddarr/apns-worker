@@ -263,6 +263,7 @@ async function generateAuthorizationToken(env) {
 function buildNotificationPayload(payload) {
   const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : 'Unknown'
   const encodedInstanceName = encodeURIComponent(instanceName)
+  const isMovie = payload.hasOwnProperty('movie')
   const isSeries = payload.hasOwnProperty('series')
 
   const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
@@ -456,7 +457,7 @@ function buildNotificationPayload(payload) {
     case 'Grab':
       const indexerName = formatIndexer(payload.release.indexer)
 
-      if (! isSeries) {
+      if (isMovie) {
         return {
           aps: {
             'alert': {
@@ -524,13 +525,15 @@ function buildNotificationPayload(payload) {
       }
 
     case 'Download':
-      if (payload.isUpgrade) {
-        const deletedQuality = payload.deletedFiles.find(
-          file => typeof file.quality === 'string' && file.quality.trim().length > 0
-        )?.quality ?? 'Unknown'
+      const isUpgrade = payload.isUpgrade ?? false
+
+      if (isUpgrade) {
+        const deletedQuality = payload.deletedFiles
+          ?.find(file => file.quality?.trim()?.length > 0)
+          ?.quality ?? 'Unknown'
       }
 
-      if (! isSeries && payload.isUpgrade) {
+      if (isMovie && isUpgrade) {
         return {
           aps: {
             'alert': {
@@ -552,7 +555,7 @@ function buildNotificationPayload(payload) {
         }
       }
 
-      if (! isSeries) {
+      if (isMovie) {
         return {
           aps: {
             'alert': {
@@ -573,6 +576,28 @@ function buildNotificationPayload(payload) {
       }
 
       if (episodes === 1) {
+        if (isUpgrade) {
+          return {
+            aps: {
+              'alert': {
+                'title-loc-key': `NOTIFICATION_EPISODE_UPGRADE`,
+                'title-loc-args': [instanceName],
+                'loc-key': 'NOTIFICATION_EPISODE_UPGRADE_SUBTITLE',
+                'loc-args': [title, season, episode],
+                'loc-key': 'NOTIFICATION_EPISODE_DOWNLOAD_BODY',
+                'loc-args': [deletedQuality, payload.episodeFile.quality],
+              },
+              'sound': 'ping.aiff',
+              'thread-id': `series:${threadId}`,
+              'relevance-score': 1.0,
+              'mutable-content': 1,
+            },
+            eventType: payload.eventType,
+            deeplink: `ruddarr://series/open/${payload.series?.id}?season=${season}&episode=${episode}&instance=${encodedInstanceName}`,
+            poster: posterUrl,
+          }
+        }
+        
         const releaseTitle = payload.release?.releaseTitle?.replace('.', ' ').toUpperCase()
         const seasonPadded = String(season).padStart(2, '0')
         const episodePadded = String(episode).padStart(2, '0')
@@ -590,7 +615,7 @@ function buildNotificationPayload(payload) {
         return {
           aps: {
             'alert': {
-              'title-loc-key': `NOTIFICATION_EPISODE_${subtype}`,
+              'title-loc-key': `NOTIFICATION_EPISODE_DOWNLOAD`,
               'title-loc-args': [instanceName],
               'loc-key': 'NOTIFICATION_EPISODE_DOWNLOAD_BODY',
               'loc-args': [title, season, episode],
@@ -609,7 +634,7 @@ function buildNotificationPayload(payload) {
       return {
         aps: {
           'alert': {
-            'title-loc-key': `NOTIFICATION_EPISODES_${subtype}`,
+            'title-loc-key': `NOTIFICATION_EPISODES_DOWNLOAD`,
             'title-loc-args': [instanceName, episodes],
             'loc-key': 'NOTIFICATION_EPISODES_DOWNLOAD_BODY',
             'loc-args': [title, season.toString()],
