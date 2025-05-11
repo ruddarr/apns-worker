@@ -584,7 +584,7 @@ function buildNotificationPayload(payload) {
                 'title-loc-args': [instanceName],
                 'loc-key': 'NOTIFICATION_EPISODE_UPGRADE_SUBTITLE',
                 'loc-args': [title, season, episode],
-                'loc-key': 'NOTIFICATION_EPISODE_DOWNLOAD_BODY',
+                'loc-key': 'NOTIFICATION_EPISODE_UPGRADE_BODY',
                 'loc-args': [deletedQuality, payload.episodeFile.quality],
               },
               'sound': 'ping.aiff',
