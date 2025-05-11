@@ -597,20 +597,6 @@ function buildNotificationPayload(payload) {
             poster: posterUrl,
           }
         }
-        
-        const releaseTitle = payload.release?.releaseTitle?.replace('.', ' ').toUpperCase()
-        const seasonPadded = String(season).padStart(2, '0')
-        const episodePadded = String(episode).padStart(2, '0')
-        const seasonSector = ` S${seasonPadded} `
-        const episodeSector = ` S${seasonPadded}E${episodePadded} `
-
-        if (! releaseTitle) {
-          return
-        }
-
-        if (releaseTitle.includes(seasonSector) && ! releaseTitle.includes(episodeSector)) {
-          return
-        }
 
         return {
           aps: {
