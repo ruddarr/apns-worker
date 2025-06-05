@@ -33,7 +33,7 @@ export default {
       }
 
       if (['MovieFileDelete', 'EpisodeFileDelete', 'Grab', 'Download'].includes(payload.eventType)) {
-        await sendDebugEmail(payload.eventType, payload, env)
+        // await sendDebugEmail(payload.eventType, payload, env)
       }
 
       console.info(`Type: ${payload.eventType}`)
