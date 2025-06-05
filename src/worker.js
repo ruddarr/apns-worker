@@ -690,7 +690,11 @@ async function verifySignature(env, signature, message) {
 
   const days = daysSince(message.split(':')[0])
 
-  console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
+  if (verified) {
+    console.info(`Valid signature ${signature}, ${message}, ${days}`)
+  } else {
+    console.error(`Invalid signature: ${signature}, ${message}, ${days}`)
+  }
 
   return verified
 }
