@@ -527,11 +527,9 @@ function buildNotificationPayload(payload) {
     case 'Download':
       const isUpgrade = payload.isUpgrade ?? false
 
-      if (isUpgrade) {
-        const deletedQuality = payload.deletedFiles
+      const deletedQuality = payload.deletedFiles
           ?.find(file => file.quality?.trim()?.length > 0)
           ?.quality ?? 'Unknown'
-      }
 
       if (isMovie && isUpgrade) {
         return {
@@ -541,7 +539,7 @@ function buildNotificationPayload(payload) {
               'title-loc-args': [instanceName],
               'subtitle-loc-key': `NOTIFICATION_MOVIE_UPGRADE_SUBTITLE`,
               'subtitle-loc-args': [title, year],
-              'loc-key': 'NOTIFICATION_MOVIE_DOWNLOAD_BODY',
+              'loc-key': 'NOTIFICATION_MOVIE_UPGRADE_BODY',
               'loc-args': [deletedQuality, payload.movieFile.quality],
             },
             'sound': 'ping.aiff',
@@ -582,8 +580,8 @@ function buildNotificationPayload(payload) {
               'alert': {
                 'title-loc-key': `NOTIFICATION_EPISODE_UPGRADE`,
                 'title-loc-args': [instanceName],
-                'loc-key': 'NOTIFICATION_EPISODE_UPGRADE_SUBTITLE',
-                'loc-args': [title, season, episode],
+                'subtitle-loc-key': 'NOTIFICATION_EPISODE_UPGRADE_SUBTITLE',
+                'subtitle-loc-args': [title, season, episode],
                 'loc-key': 'NOTIFICATION_EPISODE_UPGRADE_BODY',
                 'loc-args': [deletedQuality, payload.episodeFile.quality],
               },
