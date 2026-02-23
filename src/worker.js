@@ -1,4 +1,12 @@
-export default {
+import * as Sentry from '@sentry/cloudflare'
+
+export default Sentry.withSentry(
+  (env) => ({
+    dsn: env.SENTRY_DSN,
+    tracesSampleRate: 1,
+    beforeSend: sentryBeforeSend,
+  }),
+  {
   async fetch(request, env, ctx) {
     const { headers } = request
 
@@ -43,15 +51,28 @@ export default {
 
     return statusResponse(400)
   },
-}
+})
 
 function statusResponse(code, message = null) {
   console.info(`Response: ${code}`)
+  Sentry.setTag('statusCode', code)
 
   return Response.json(
     { status: code, message },
     { status: code }
   )
+}
+
+function sentryBeforeSend(event) {
+  for (const header of ['Authorization']) {
+    delete event.request?.headers?.[header]
+  }
+
+  if ([402, 403, 405, 410].includes(event.tags?.statusCode)) {
+    return null
+  }
+
+  return event
 }
 
 function isValidWebhookRequest(url, payload) {
