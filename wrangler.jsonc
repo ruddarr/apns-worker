@@ -1,0 +1,30 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ruddarr-apns",
+	"main": "src/worker.js",
+  "account_id": "6fda983237b9114965159023cd666e26",
+	"compatibility_date": "2026-02-23",
+	"observability": {
+		"enabled": true
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"kv_namespaces": [
+		{ "binding": "STORE", "id": "efde1ff9982f4735a41792f00d27cb9e" }
+	],
+	"routes": [
+		{ "pattern": "notify.ruddarr.com", "custom_domain": true }
+	],
+	"vars": {
+		"APPLE_KEYID": "4W2SZ53F4W",
+		"APPLE_TEAMID": "B9ZZ8GLWRA"
+	},
+	"placement": {
+    "mode": "smart"
+  }
+}

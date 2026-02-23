@@ -1,5 +1,5 @@
 export default {
-  async fetch(request, env, context) {
+  async fetch(request, env, ctx) {
     const { headers } = request
 
     console.info(`URL: ${request.url}`)
@@ -32,9 +32,9 @@ export default {
         return statusResponse(202)
       }
 
-      if (['MovieFileDelete', 'EpisodeFileDelete', 'Grab', 'Download'].includes(payload.eventType)) {
-        // await sendDebugEmail(payload.eventType, payload, env)
-      }
+      // if (['MovieFileDelete', 'EpisodeFileDelete', 'Grab', 'Download'].includes(payload.eventType)) {
+      //   await sendDebugEmail(payload.eventType, payload, env)
+      // }
 
       console.info(`Type: ${payload.eventType}`)
 

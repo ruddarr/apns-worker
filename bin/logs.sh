@@ -16,6 +16,6 @@ curl -s -g -X GET \
   | while IFS= read -r line; do
     rayId=$(echo "$line" | jq -r '.Event.RayID')
     echo "------ $rayId ------"
-    echo "$line" | jq '.Logs[].Message[]' | sed 's/\\"/"/g' 
+    echo "$line" | jq '.Logs[].Message[]' | sed 's/\\"/"/g'
     echo -e "\n\n"
   done
