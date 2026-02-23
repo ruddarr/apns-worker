@@ -6,25 +6,32 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "ruddarr-apns",
 	"main": "src/worker.js",
-  "account_id": "6fda983237b9114965159023cd666e26",
+	"account_id": "6fda983237b9114965159023cd666e26",
 	"compatibility_date": "2026-02-23",
 	"observability": {
-		"enabled": true
+		"enabled": false,
+		"logs": { "enabled": false }
 	},
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
 	"kv_namespaces": [
-		{ "binding": "STORE", "id": "efde1ff9982f4735a41792f00d27cb9e" }
+		{
+			"binding": "STORE",
+			"id": "efde1ff9982f4735a41792f00d27cb9e"
+		}
 	],
 	"routes": [
-		{ "pattern": "notify.ruddarr.com", "custom_domain": true }
+		{
+			"pattern": "notify.ruddarr.com",
+			"custom_domain": true
+		}
 	],
 	"vars": {
 		"APPLE_KEYID": "4W2SZ53F4W",
 		"APPLE_TEAMID": "B9ZZ8GLWRA"
 	},
 	"placement": {
-    "mode": "smart"
-  }
+		"mode": "smart"
+	}
 }
