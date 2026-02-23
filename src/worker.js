@@ -127,14 +127,17 @@ async function registerDevice(env, payload) {
 
   const devices = new Set(data.devices)
   const deviceRegistered = devices.has(payload.token)
+  const entitledAtChanged = data.entitledAt !== payload.entitledAt
 
-  devices.add(payload.token)
+  if (! deviceRegistered || entitledAtChanged) {
+    devices.add(payload.token)
 
-  data.seenAt = Math.floor(Date.now() / 1000)
-  data.entitledAt = payload.entitledAt
-  data.devices = Array.from(devices)
+    data.seenAt = Math.floor(Date.now() / 1000)
+    data.entitledAt = payload.entitledAt
+    data.devices = Array.from(devices)
 
-  await env.STORE.put(payload.account, JSON.stringify(data))
+    await env.STORE.put(payload.account, JSON.stringify(data))
+  }
 
   return statusResponse(deviceRegistered ? 200 : 201)
 }
