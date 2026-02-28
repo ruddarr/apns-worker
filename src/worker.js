@@ -226,8 +226,17 @@ async function sendNotification(notification, device, account, authorization, en
     return { success: true, apnsId, device }
   }
 
-  const json = await response.json()
-  const message = json?.reason ?? 'Unknown'
+  const text = await response.text()
+
+  let message = 'Unknown'
+
+  try {
+    const json = JSON.parse(text)
+    message = json?.reason ?? 'Unknown'
+  } catch {
+    message = text || `HTTP ${response.status}`
+    console.error(`APNs returned non-JSON response: ${text}`)
+  }
 
   console.error(`APNs returned status ${response.status}: ${message} (sandbox: ${+sandbox}, apnsId: ${apnsId}, device: ${device})`)
 
