@@ -802,7 +802,12 @@ function pemToBinary(pem) {
 }
 
 function base64StringToArrayBuffer(b64str) {
-  return byteStringToBytes(atob(b64str)).buffer
+  // convert Swift's base64url to standard base64
+  const safeb64 = b64str
+    .replace(/-/g, '+')
+    .replace(/_/g, '/')
+
+  return byteStringToBytes(atob(safeb64)).buffer
 }
 
 async function sendDebugEmail(subject, payload, env) {
