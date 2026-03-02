@@ -98,9 +98,12 @@ function parsePushUrl(url) {
     .replace('/push/', '')
     .replace('/', '')
 
-  const [timestamp, account] = atob(data).split(':')
-
-  return { timestamp: parseInt(timestamp), account }
+  try {
+    const [timestamp, account] = atob(data).split(':')
+    return { timestamp: parseInt(timestamp), account }
+  } catch {
+    return { timestamp: 0, account: '' }
+  }
 }
 
 function daysSince(timestamp) {
@@ -698,34 +701,41 @@ async function verifyWebhookSignature(env, headers, message) {
     return false
   }
 
-  const [_, password] = atob(bearer).split(':')
-
-  return await verifySignature(env, password, message)
+  try {
+    const [_, password] = atob(bearer).split(':')
+    return await verifySignature(env, password, message)
+  } catch {
+    return false
+  }
 }
 
 async function verifySignature(env, signature, message) {
-  const encoder = new TextEncoder()
+  try {
+    const encoder = new TextEncoder()
 
-  const key = await crypto.subtle.importKey(
-    'raw',
-    encoder.encode(env.WEBHOOK_SECRET),
-    { name: 'HMAC', hash: 'SHA-256' },
-    false,
-    ['verify']
-  )
+    const key = await crypto.subtle.importKey(
+      'raw',
+      encoder.encode(env.WEBHOOK_SECRET),
+      { name: 'HMAC', hash: 'SHA-256' },
+      false,
+      ['verify']
+    )
 
-  const verified = await crypto.subtle.verify(
-    'HMAC',
-    key,
-    base64StringToArrayBuffer(signature),
-    encoder.encode(message)
-  )
+    const verified = await crypto.subtle.verify(
+      'HMAC',
+      key,
+      base64StringToArrayBuffer(signature),
+      encoder.encode(message)
+    )
 
-  const days = daysSince(message.split(':')[0])
+    const days = daysSince(message.split(':')[0])
 
-  console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
+    console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
 
-  return verified
+    return verified
+  } catch {
+    return false
+  }
 }
 
 function formatIndexer(name) {
