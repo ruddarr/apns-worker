@@ -23,6 +23,10 @@ export default Sentry.withSentry(
       return registerDevice(env, payload)
     }
 
+    if (url.pathname.startsWith('/push/noop') && payload.eventType == 'Test') {
+      return statusResponse(202)
+    }
+
     if (url.pathname.startsWith('/push/') && isValidWebhookRequest(url, payload)) {
       const { timestamp, account } = parsePushUrl(url)
 
