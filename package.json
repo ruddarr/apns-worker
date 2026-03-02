@@ -3,13 +3,15 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"deploy": "wrangler deploy",
+		"build": "vite build",
+		"deploy": "npm run build && wrangler deploy dist/worker.js --no-bundle",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
 		"test": "vitest"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.12.4",
+		"@sentry/vite-plugin": "^5.1.1",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.67.1"
 	},
