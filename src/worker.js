@@ -10,9 +10,9 @@ export default Sentry.withSentry(
   async fetch(request, env, ctx) {
     const { headers } = request
 
-    console.info(`URL: ${request.url}`)
+    // console.info(`URL: ${request.url}`)
     console.info(`User-Agent: ${headers.get('user-agent')}`)
-    console.info(`CF-Connecting-IP: ${headers.get('cf-connecting-ip')}`)
+    // console.info(`CF-Connecting-IP: ${headers.get('cf-connecting-ip')}`)
 
     const url = new URL(request.url)
     const payload = await request.json()
@@ -180,7 +180,7 @@ async function handleWebhook(env, account, payload) {
   }
 
   console.info('Notification: ' + JSON.stringify(notification).replace(/\\/g, ''))
-  console.info('Devices: ' + JSON.stringify(devices).replace(/\\/g, ''))
+  // console.info('Devices: ' + JSON.stringify(devices).replace(/\\/g, ''))
 
   const authorization = await generateAuthorizationToken(env)
 
@@ -723,7 +723,7 @@ async function verifySignature(env, signature, message) {
 
   const days = daysSince(message.split(':')[0])
 
-  console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
+  // console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
 
   return verified
 }
