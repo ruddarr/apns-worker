@@ -23,7 +23,7 @@ export default Sentry.withSentry(
       return registerDevice(env, payload)
     }
 
-    if (url.pathname.startsWith('/push/noop') && payload.eventType == 'Test') {
+    if (url.pathname.startsWith('/push/test') && payload.eventType == 'Test') {
       return statusResponse(202)
     }
 
