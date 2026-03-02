@@ -3,4 +3,6 @@
 !.dev.vars.example
 .env*
 !.env.example
+.sentryclirc
+dist/
 node_modules/
