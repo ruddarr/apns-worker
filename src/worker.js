@@ -810,6 +810,7 @@ function base64StringToArrayBuffer(b64str) {
   const safeb64 = b64str
     .replace(/-/g, '+')
     .replace(/_/g, '/')
+    .padEnd(b64str.length + (4 - b64str.length % 4) % 4, '=')
 
   return byteStringToBytes(atob(safeb64)).buffer
 }
