@@ -734,7 +734,7 @@ async function verifySignature(env, signature, message) {
 
 function formatIndexer(name) {
   if (!name) {
-    return ''
+    return 'Unknown'
   }
 
   if (name.endsWith(' (Prowlarr)')) {
