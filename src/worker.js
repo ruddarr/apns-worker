@@ -15,7 +15,14 @@ export default Sentry.withSentry(
     // console.info(`CF-Connecting-IP: ${headers.get('cf-connecting-ip')}`)
 
     const url = new URL(request.url)
-    const payload = await request.json()
+
+    let payload
+
+    try {
+      payload = await request.json()
+    } catch {
+      return statusResponse(400, 'invalid JSON body')
+    }
 
     console.info('Payload: ' + JSON.stringify(payload).replace(/\\/g, ''))
 
