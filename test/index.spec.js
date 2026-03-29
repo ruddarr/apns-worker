@@ -1,20 +1,41 @@
-import { env, createExecutionContext, waitOnExecutionContext, SELF } from 'cloudflare:test';
+import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
 import { describe, it, expect } from 'vitest';
-import worker from '../src';
+import worker from '../src/worker';
 
-describe('Hello World worker', () => {
-	it('responds with Hello World! (unit style)', async () => {
-		const request = new Request('http://example.com');
-		// Create an empty context to pass to `worker.fetch()`.
+describe('worker', () => {
+	it('returns 400 for request with empty body', async () => {
+		const request = new Request('http://example.com', { method: 'POST' });
 		const ctx = createExecutionContext();
 		const response = await worker.fetch(request, env, ctx);
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
-		expect(await response.text()).toMatchInlineSnapshot(`"Hello World!"`);
+		const body = await response.json();
+		expect(response.status).toBe(400);
+		expect(body.message).toBe('invalid JSON body');
 	});
 
-	it('responds with Hello World! (integration style)', async () => {
-		const response = await SELF.fetch('http://example.com');
-		expect(await response.text()).toMatchInlineSnapshot(`"Hello World!"`);
+	it('returns 400 for request with invalid JSON body', async () => {
+		const request = new Request('http://example.com', {
+			method: 'POST',
+			body: 'not json',
+			headers: { 'content-type': 'application/json' },
+		});
+		const ctx = createExecutionContext();
+		const response = await worker.fetch(request, env, ctx);
+		await waitOnExecutionContext(ctx);
+		const body = await response.json();
+		expect(response.status).toBe(400);
+		expect(body.message).toBe('invalid JSON body');
+	});
+
+	it('returns 400 for request with valid JSON but invalid path', async () => {
+		const request = new Request('http://example.com/unknown', {
+			method: 'POST',
+			body: JSON.stringify({ eventType: 'Test' }),
+			headers: { 'content-type': 'application/json' },
+		});
+		const ctx = createExecutionContext();
+		const response = await worker.fetch(request, env, ctx);
+		await waitOnExecutionContext(ctx);
+		expect(response.status).toBe(400);
 	});
 });
