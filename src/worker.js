@@ -499,7 +499,7 @@ function buildNotificationPayload(payload) {
       }
 
     case 'Grab':
-      const indexerName = formatIndexer(payload.release.indexer)
+      const indexerName = formatIndexer(payload.release?.indexer)
 
       if (isMovie) {
         return {
