@@ -5,6 +5,9 @@ on:
 
 concurrency: deploy
 
+permissions:
+  contents: read
+
 jobs:
 
   deploy:
