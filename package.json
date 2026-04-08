@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.12.4",
-    "@sentry/cli": "^2.58.5",
+    "@sentry/cli": "^3.3.5",
     "vitest": "~3.2.0",
     "wrangler": "^4.67.1"
   },
