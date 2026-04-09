@@ -239,7 +239,7 @@ async function sendNotification(notification, device, account, authorization, en
 
   const text = await response.text()
 
-  let message = 'Unknown'
+  let message
 
   try {
     const json = JSON.parse(text)
@@ -523,7 +523,7 @@ function buildNotificationPayload(payload) {
         }
       }
 
-      if (episodes === 1) {
+      if (episodes === '1') {
         return {
           aps: {
             'alert': {
@@ -616,7 +616,7 @@ function buildNotificationPayload(payload) {
         }
       }
 
-      if (episodes === 1) {
+      if (episodes === '1') {
         if (isUpgrade) {
           return {
             aps: {
@@ -731,8 +731,8 @@ async function verifySignature(env, signature, message) {
     encoder.encode(message)
   )
 
-  const days = daysSince(message.split(':')[0])
 
+  // const days = daysSince(message.split(':')[0])
   // console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
 
   return verified
