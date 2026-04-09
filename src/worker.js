@@ -308,16 +308,15 @@ function buildNotificationPayload(payload) {
   const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : 'Unknown'
   const encodedInstanceName = encodeURIComponent(instanceName)
   const isMovie = payload.hasOwnProperty('movie')
-  const isSeries = payload.hasOwnProperty('series')
 
   const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
-  const year = ((yyyy) => yyyy === 0 ? "Unknown" : yyyy)(payload.series?.year ?? payload.movie?.year ?? 0)
+  const year = String(payload.series?.year || payload.movie?.year || "Unknown")
   const threadId = payload.series?.tvdbId ?? payload.movie?.tmdbId
   const posterUrl = (payload.series ?? payload.movie)?.images?.find(image => image.coverType === 'poster')?.remoteUrl;
 
-  const episodes = payload.episodes?.length
-  const episode = payload.episodes?.[0]?.episodeNumber
-  const season = payload.episodes?.[0]?.seasonNumber
+  const episodes = String(payload.episodes?.length ?? 0)
+  const episode = String(payload.episodes?.[0]?.episodeNumber ?? 0)
+  const season = String(payload.episodes?.[0]?.seasonNumber ?? 0)
   const message = payload.message?.replace(' (Prowlarr)', '')
 
   switch (payload.eventType) {
@@ -665,7 +664,7 @@ function buildNotificationPayload(payload) {
             'title-loc-key': `NOTIFICATION_EPISODES_DOWNLOAD`,
             'title-loc-args': [instanceName, episodes],
             'loc-key': 'NOTIFICATION_EPISODES_DOWNLOAD_BODY',
-            'loc-args': [title, season.toString()],
+            'loc-args': [title, season],
           },
           'sound': 'ping.aiff',
           'thread-id': `series:${threadId}`,
