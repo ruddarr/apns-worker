@@ -574,15 +574,18 @@ function buildNotificationPayload(payload) {
           ?.find(file => file.quality?.trim()?.length > 0)
           ?.quality ?? 'Unknown'
 
+      const newQuality = isMovie ? payload.movieFile?.quality : payload.episodeFile?.quality
+      const action = isQualityDowngrade(deletedQuality, newQuality) ? 'DOWNGRADE' : 'UPGRADE'
+
       if (isMovie && isUpgrade) {
         return {
           aps: {
             'alert': {
-              'title-loc-key': `NOTIFICATION_MOVIE_UPGRADE`,
+              'title-loc-key': `NOTIFICATION_MOVIE_${action}`,
               'title-loc-args': [instanceName],
               'subtitle-loc-key': `NOTIFICATION_MOVIE_UPGRADE_SUBTITLE`,
               'subtitle-loc-args': [title, year],
-              'loc-key': 'NOTIFICATION_MOVIE_UPGRADE_BODY',
+              'loc-key': `NOTIFICATION_MOVIE_${action}_BODY`,
               'loc-args': [deletedQuality, payload.movieFile.quality],
             },
             'sound': 'ping.aiff',
@@ -621,11 +624,11 @@ function buildNotificationPayload(payload) {
           return {
             aps: {
               'alert': {
-                'title-loc-key': `NOTIFICATION_EPISODE_UPGRADE`,
+                'title-loc-key': `NOTIFICATION_EPISODE_${action}`,
                 'title-loc-args': [instanceName],
                 'subtitle-loc-key': 'NOTIFICATION_EPISODE_UPGRADE_SUBTITLE',
                 'subtitle-loc-args': [title, season, episode],
-                'loc-key': 'NOTIFICATION_EPISODE_UPGRADE_BODY',
+                'loc-key': `NOTIFICATION_EPISODE_${action}_BODY`,
                 'loc-args': [deletedQuality, payload.episodeFile.quality],
               },
               'sound': 'ping.aiff',
@@ -736,6 +739,22 @@ async function verifySignature(env, signature, message) {
   // console.info(`Signature: ${verified} (${signature}, ${message}, ${days})`)
 
   return verified
+}
+
+function qualityResolution(quality) {
+  const match = quality?.match(/(\d{3,4})p/i)
+  return match ? parseInt(match[1], 10) : null
+}
+
+function isQualityDowngrade(oldQuality, newQuality) {
+  const oldResolution = qualityResolution(oldQuality)
+  const newResolution = qualityResolution(newQuality)
+
+  if (oldResolution === null || newResolution === null) {
+    return false
+  }
+
+  return newResolution < oldResolution
 }
 
 function formatIndexer(name) {
