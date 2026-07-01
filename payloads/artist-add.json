@@ -1,0 +1,15 @@
+{
+  "artist": {
+    "id": 180,
+    "name": "REDD.",
+    "disambiguation": "Australian solo artist (punk-meets-hip hop-meets-pop), formerly known as The Kid DC",
+    "path": "/mnt/plex/music/REDD",
+    "mbId": "6e482d7c-2572-4bd4-a2bd-7ccf5b67df70",
+    "genres": [],
+    "images": [],
+    "tags": []
+  },
+  "eventType": "ArtistAdd",
+  "instanceName": "Lidarr",
+  "applicationUrl": ""
+}

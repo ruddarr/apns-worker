@@ -308,11 +308,15 @@ function buildNotificationPayload(payload) {
   const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : 'Unknown'
   const encodedInstanceName = encodeURIComponent(instanceName)
   const isMovie = payload.hasOwnProperty('movie')
+  const isArtist = payload.hasOwnProperty('artist')
 
-  const title = payload.series?.title ?? payload.movie?.title ?? 'Unknown'
+  const title = payload.series?.title ?? payload.movie?.title ?? payload.album?.title ?? payload.artist?.name ?? 'Unknown'
   const year = String(payload.series?.year || payload.movie?.year || "Unknown")
-  const threadId = payload.series?.tvdbId ?? payload.movie?.tmdbId
-  const posterUrl = (payload.series ?? payload.movie)?.images?.find(image => image.coverType === 'poster')?.remoteUrl;
+  const threadId = payload.series?.tvdbId ?? payload.movie?.tmdbId ?? payload.album?.mbId ?? payload.artist?.mbId
+  const posterUrl = (payload.series ?? payload.movie ?? payload.album ?? payload.artist)?.images?.find(image => image.coverType === 'poster' || image.coverType === 'cover')?.remoteUrl;
+
+  const artistName = payload.artist?.name ?? 'Unknown'
+  const albumName = payload.album?.title ?? 'Unknown'
 
   const episodes = String(payload.episodes?.length ?? 0)
   const episode = String(payload.episodes?.[0]?.episodeNumber ?? 0)
@@ -497,6 +501,64 @@ function buildNotificationPayload(payload) {
         poster: posterUrl,
       }
 
+    case 'ArtistAdd':
+      return {
+        aps: {
+            'alert': {
+                'title-loc-key': 'NOTIFICATION_ARTIST_ADDED',
+                'title-loc-args': [instanceName],
+                'loc-key': 'NOTIFICATION_ARTIST_ADDED_BODY',
+                'loc-args': [artistName],
+            },
+            'sound': 'ping.aiff',
+            'thread-id': `artist:${threadId}`,
+            'relevance-score': 0.6,
+            'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
+        deeplink: `ruddarr://artists/open/${payload.artist?.id}?instance=${encodedInstanceName}`,
+        poster: posterUrl,
+      }
+
+    case 'ArtistDelete':
+      return {
+        aps: {
+              'alert': {
+                  'title-loc-key': 'NOTIFICATION_ARTIST_DELETED',
+                  'title-loc-args': [instanceName],
+                  'loc-key': 'NOTIFICATION_ARTIST_DELETED_BODY',
+                  'loc-args': [artistName],
+              },
+              'sound': 'ping.aiff',
+              'thread-id': `artist:${threadId}`,
+              'relevance-score': 0.6,
+              'mutable-content': 1,
+          },
+          eventType: payload.eventType,
+          hideInForeground: true,
+          poster: posterUrl,
+      }
+
+    case 'AlbumDelete':
+      return {
+        aps: {
+          'alert': {
+            'title-loc-key': 'NOTIFICATION_ALBUM_FILES_DELETED',
+            'title-loc-args': [instanceName],
+            'loc-key': 'NOTIFICATION_ALBUM_FILES_DELETED_BODY',
+            'loc-args': [albumName, artistName],
+          },
+          'sound': 'ping.aiff',
+          'thread-id': `album:${threadId}`,
+          'relevance-score': 0.6,
+          'mutable-content': 1,
+        },
+        eventType: payload.eventType,
+        hideInForeground: true,
+        poster: posterUrl,
+      }
+
     case 'Grab':
       const indexerName = formatIndexer(payload.release?.indexer)
 
@@ -519,6 +581,29 @@ function buildNotificationPayload(payload) {
           eventType: payload.eventType,
           hideInForeground: true,
           deeplink: `ruddarr://movies/open/${payload.movie?.id}?instance=${encodedInstanceName}`,
+          poster: posterUrl,
+        }
+      }
+
+      if (isArtist) {
+        return {
+          aps: {
+            'alert': {
+              'title-loc-key': 'NOTIFICATION_ALBUM_GRAB',
+              'title-loc-args': [instanceName],
+              'subtitle-loc-key': 'NOTIFICATION_ALBUM_GRAB_SUBTITLE',
+              'subtitle-loc-args': [albumName, artistName],
+              'loc-key': 'NOTIFICATION_ALBUM_GRAB_BODY',
+              'loc-args': [payload.release.quality, indexerName],
+            },
+            'sound': 'ping.aiff',
+            'thread-id': `album:${threadId}`,
+            'relevance-score': 0.8,
+            'mutable-content': 1,
+          },
+          eventType: payload.eventType,
+          hideInForeground: true,
+          deeplink: `ruddarr://artists/open/${payload.artist?.id}?albumId=${payload.album?.id}&instance=${encodedInstanceName}`,
           poster: posterUrl,
         }
       }
@@ -618,6 +703,48 @@ function buildNotificationPayload(payload) {
           poster: posterUrl,
         }
       }
+
+        if (isArtist && isUpgrade) {
+            return {
+                aps: {
+                    'alert': {
+                        'title-loc-key': `NOTIFICATION_ALBUM_UPGRADE`,
+                        'title-loc-args': [instanceName],
+                        'subtitle-loc-key': `NOTIFICATION_ALBUM_UPGRADE_SUBTITLE`,
+                        'subtitle-loc-args': [albumName, artistName],
+                        'loc-key': 'NOTIFICATION_ALBUM_UPGRADE_BODY',
+                        'loc-args': [deletedQuality, payload.trackFiles[0].quality],
+                    },
+                    'sound': 'ping.aiff',
+                    'thread-id': `album:${threadId}`,
+                    'relevance-score': 1.0,
+                    'mutable-content': 1,
+                },
+                eventType: payload.eventType,
+                deeplink: `ruddarr://artists/open/${payload.artist?.id}?albumId=${payload.album?.id}&instance=${encodedInstanceName}`,
+                poster: posterUrl,
+            }
+        }
+
+        if (isArtist) {
+            return {
+                aps: {
+                    'alert': {
+                        'title-loc-key': `NOTIFICATION_ALBUM_DOWNLOAD`,
+                        'title-loc-args': [instanceName],
+                        'loc-key': 'NOTIFICATION_ALBUM_DOWNLOAD_BODY',
+                        'loc-args': [albumName, artistName],
+                    },
+                    'sound': 'ping.aiff',
+                    'thread-id': `album:${threadId}`,
+                    'relevance-score': 1.0,
+                    'mutable-content': 1,
+                },
+                eventType: payload.eventType,
+                deeplink: `ruddarr://artists/open/${payload.artist?.id}?albumId=${payload.album?.id}&instance=${encodedInstanceName}`,
+                poster: posterUrl,
+            }
+        }
 
       if (episodes === '1') {
         if (isUpgrade) {

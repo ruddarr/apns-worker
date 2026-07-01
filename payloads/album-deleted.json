@@ -1,0 +1,34 @@
+{
+  "artist": {
+    "id": 179,
+    "name": "REDD.",
+    "disambiguation": "Australian solo artist (punk-meets-hip hop-meets-pop), formerly known as The Kid DC",
+    "path": "/mnt/plex/music/REDD",
+    "mbId": "6e482d7c-2572-4bd4-a2bd-7ccf5b67df70",
+    "genres": [],
+    "images": [],
+    "tags": []
+  },
+  "album": {
+    "id": 1770,
+    "mbId": "8485c59b-7143-4bb8-ba4c-01c35bb0b4a5",
+    "title": "juliet",
+    "disambiguation": "",
+    "overview": "",
+    "albumType": "Single",
+    "secondaryAlbumTypes": [],
+    "releaseDate": "2026-02-18T00:00:00Z",
+    "genres": [],
+    "images": [
+      {
+        "coverType": "cover",
+        "url": "/MediaCover/Albums/1770/cover.jpg?lastWrite=639149303633712635",
+        "remoteUrl": "https://images.lidarr.audio/cache/https://coverartarchive.org/release/5882e47e-fa2c-4f0c-ac0a-3ff412fc5683/44622360965-1200.jpg"
+      }
+    ]
+  },
+  "deletedFiles": false,
+  "eventType": "AlbumDelete",
+  "instanceName": "Lidarr",
+  "applicationUrl": ""
+}

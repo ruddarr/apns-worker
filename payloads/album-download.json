@@ -1,0 +1,441 @@
+{
+  "artist": {
+    "id": 157,
+    "name": "Lady Gaga",
+    "disambiguation": "",
+    "path": "/mnt/plex/music/Lady Gaga",
+    "mbId": "650e7db6-b795-4eb5-a702-5ea2fc46c848",
+    "type": "Person",
+    "genres": [
+      "Pop",
+      "Dance-Pop",
+      "Electropop",
+      "Pop Rock",
+      "Synth-Pop",
+      "Electronic",
+      "Dance",
+      "Jazz",
+      "Electro House",
+      "Americana"
+    ],
+    "images": [
+      {
+        "coverType": "poster",
+        "url": "/MediaCover/157/poster.jpg?lastWrite=639072770588686464",
+        "remoteUrl": "/var/lib/lidarr/MediaCover/157/poster.jpg"
+      },
+      {
+        "coverType": "banner",
+        "url": "/MediaCover/157/banner.jpg?lastWrite=638773373631630257",
+        "remoteUrl": "/var/lib/lidarr/MediaCover/157/banner.jpg"
+      },
+      {
+        "coverType": "clearlogo",
+        "url": "/MediaCover/157/clearlogo.png?lastWrite=638773373647908420",
+        "remoteUrl": "/var/lib/lidarr/MediaCover/157/clearlogo.png"
+      },
+      {
+        "coverType": "fanart",
+        "url": "/MediaCover/157/fanart.jpg?lastWrite=639072770588407236",
+        "remoteUrl": "/var/lib/lidarr/MediaCover/157/fanart.jpg"
+      }
+    ],
+    "tags": []
+  },
+  "album": {
+    "id": 1019,
+    "mbId": "e5495719-b3ad-3eea-a533-fb70af43c23d",
+    "title": "The Fame",
+    "disambiguation": "",
+    "overview": "The Fame is the debut studio album by American singer Lady Gaga. It was released on August 19, 2008, by Interscope Records. After joining KonLive Distribution and Cherrytree Records in 2008, Gaga began working on the album with different producers, primarily RedOne, Martin Kierszenbaum, and Rob Fusari. Musically, The Fame is an electropop, synth-pop, and dance-pop record that displays influences from 1980s music. Lyrically, it visualizes Gaga's love of fame in general, while also dealing with subjects such as love, sex, money, drugs, and sexual identity. The album was primarily promoted through The Fame Ball Tour and multiple television appearances, and was reissued as a deluxe edition with The Fame Monster on November 18, 2009.\nThe album received generally favorable reviews from critics, who commended its lyrical content, Gaga's musicianship and vocal ability. It was a commercial success, topping the charts in several countries including the United Kingdom, Canada, Germany, Ireland, Poland, and Switzerland. It peaked at number two on the US Billboard 200, and also topped the Dance/Electronic Albums chart for 190 non-consecutive weeks, the most time on top in history. It has since been certified six-times Platinum by the Recording Industry Association of America (RIAA). The Fame became the fifth best-selling album of 2009, and has sold over 4.9 million copies in the United States as of January 2019. Combined with The Fame Monster, the album had sold over 18 million copies worldwide as of August 2019, making it one of the best selling albums of the 21st century.\nThe first two singles off the album, \"Just Dance\" and \"Poker Face\" gained international success, topping the charts in several countries worldwide including the United States, the United Kingdom, and Australia. The subsequent singles \"LoveGame\" and \"Paparazzi\" were commercial successes as well, charting within the top-ten of over ten countries worldwide. \"Eh, Eh (Nothing Else I Can Say)\" had a limited single release, while \"Beautiful, Dirty, Rich\" served as a promotional single.\nThe Fame has won multiple awards since its release. The album was nominated for a total of five Grammy Awards at the 52nd Annual Grammy Awards, including Album of the Year. It won Best Electronic/Dance Album and Best Dance Recording for its single \"Poker Face\", and also won Best International Album at the 2010 Brit Awards. In 2013 and 2022, Rolling Stone named The Fame as one of the \"100 Greatest Debut Albums of All-Time\". As of 2023, it is the 12th biggest album of all time on the US Billboard 200.\n\n",
+    "albumType": "Album",
+    "secondaryAlbumTypes": [],
+    "releaseDate": "2008-08-19T00:00:00Z",
+    "genres": [
+      "Pop",
+      "Dance-Pop",
+      "Electropop",
+      "Synth-Pop",
+      "Alternative Rock",
+      "Dance",
+      "Electronic",
+      "Electro",
+      "Europop",
+      "New Wave",
+      "Club"
+    ],
+    "images": [
+      {
+        "coverType": "cover",
+        "url": "/MediaCover/Albums/1019/cover.jpg?lastWrite=639116844991301661",
+        "remoteUrl": "https://images.lidarr.audio/cache/https://coverartarchive.org/release/d12b3b3a-301c-4036-bf6a-c609ba20ea32/31839671676-1200.jpg"
+      },
+      {
+        "coverType": "disc",
+        "url": "/MediaCover/Albums/1019/disc.jpg",
+        "remoteUrl": "https://images.lidarr.audio/cache/https://coverartarchive.org/release/d401d453-6d1b-42c0-9a4f-d204e526c1e8/39131146166-1200.jpg"
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "id": 30729,
+      "title": "Bad Romance",
+      "trackNumber": "1",
+      "qualityVersion": 0
+    },
+    {
+      "id": 37997,
+      "title": "Just Dance",
+      "trackNumber": "1",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30730,
+      "title": "Alejandro",
+      "trackNumber": "2",
+      "qualityVersion": 0
+    },
+    {
+      "id": 37998,
+      "title": "LoveGame",
+      "trackNumber": "2",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30731,
+      "title": "Monster",
+      "trackNumber": "3",
+      "qualityVersion": 0
+    },
+    {
+      "id": 37999,
+      "title": "Paparazzi",
+      "trackNumber": "3",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30732,
+      "title": "Speechless",
+      "trackNumber": "4",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38000,
+      "title": "Poker Face",
+      "trackNumber": "4",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30733,
+      "title": "Dance in the Dark",
+      "trackNumber": "5",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38001,
+      "title": "I Like It Rough",
+      "trackNumber": "5",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30734,
+      "title": "Telephone",
+      "trackNumber": "6",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38002,
+      "title": "Eh, Eh (Nothing Else I Can Say)",
+      "trackNumber": "6",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30735,
+      "title": "So Happy I Could Die",
+      "trackNumber": "7",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38003,
+      "title": "Starstruck",
+      "trackNumber": "7",
+      "qualityVersion": 0
+    },
+    {
+      "id": 30736,
+      "title": "Teeth",
+      "trackNumber": "8",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38004,
+      "title": "Beautiful, Dirty, Rich",
+      "trackNumber": "8",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38005,
+      "title": "The Fame",
+      "trackNumber": "9",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38006,
+      "title": "Money Honey",
+      "trackNumber": "10",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38007,
+      "title": "Boys Boys Boys",
+      "trackNumber": "11",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38008,
+      "title": "Paper Gangsta",
+      "trackNumber": "12",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38009,
+      "title": "Brown Eyes",
+      "trackNumber": "13",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38010,
+      "title": "Summerboy",
+      "trackNumber": "14",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38011,
+      "title": "Disco Heaven",
+      "trackNumber": "15",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38012,
+      "title": "Again Again",
+      "trackNumber": "16",
+      "qualityVersion": 0
+    },
+    {
+      "id": 38013,
+      "title": "Retro Dance Freak",
+      "trackNumber": "17",
+      "qualityVersion": 0
+    }
+  ],
+  "trackFiles": [
+    {
+      "id": 219898,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 01 - Bad Romance.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 39087621,
+      "dateAdded": "2026-05-21T05:15:17.5356839Z"
+    },
+    {
+      "id": 219899,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 01 - Just Dance.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 30894449,
+      "dateAdded": "2026-05-21T05:15:17.5885741Z"
+    },
+    {
+      "id": 219900,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 02 - Alejandro.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 35373827,
+      "dateAdded": "2026-05-21T05:15:17.6091674Z"
+    },
+    {
+      "id": 219901,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 02 - LoveGame.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 27285649,
+      "dateAdded": "2026-05-21T05:15:17.6302284Z"
+    },
+    {
+      "id": 219902,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 03 - Monster.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 33463923,
+      "dateAdded": "2026-05-21T05:15:17.6478063Z"
+    },
+    {
+      "id": 219903,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 03 - Paparazzi.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 24981993,
+      "dateAdded": "2026-05-21T05:15:17.6703037Z"
+    },
+    {
+      "id": 219904,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 04 - Speechless.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 33960077,
+      "dateAdded": "2026-05-21T05:15:17.6887365Z"
+    },
+    {
+      "id": 219905,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 04 - Poker Face.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 30321048,
+      "dateAdded": "2026-05-21T05:15:17.7118956Z"
+    },
+    {
+      "id": 219906,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 05 - Dance in the Dark.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 39698581,
+      "dateAdded": "2026-05-21T05:15:17.7330675Z"
+    },
+    {
+      "id": 219907,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 05 - I Like It Rough.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 26371778,
+      "dateAdded": "2026-05-21T05:15:17.7577429Z"
+    },
+    {
+      "id": 219908,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 06 - Telephone.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 28309015,
+      "dateAdded": "2026-05-21T05:15:17.7769701Z"
+    },
+    {
+      "id": 219909,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 06 - Eh, Eh (Nothing Else I Can Say).flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 21385155,
+      "dateAdded": "2026-05-21T05:15:17.7971513Z"
+    },
+    {
+      "id": 219910,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 07 - So Happy I Could Die.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 29173923,
+      "dateAdded": "2026-05-21T05:15:17.8134746Z"
+    },
+    {
+      "id": 219911,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 07 - Starstruck.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 26410323,
+      "dateAdded": "2026-05-21T05:15:17.8338207Z"
+    },
+    {
+      "id": 219912,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 01/Lady Gaga - The Fame - 08 - Teeth.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 28577040,
+      "dateAdded": "2026-05-21T05:15:17.8521491Z"
+    },
+    {
+      "id": 219913,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 08 - Beautiful, Dirty, Rich.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 20616025,
+      "dateAdded": "2026-05-21T05:15:17.8717906Z"
+    },
+    {
+      "id": 219914,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 09 - The Fame.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 29647488,
+      "dateAdded": "2026-05-21T05:15:17.8899712Z"
+    },
+    {
+      "id": 219915,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 10 - Money Honey.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 21687506,
+      "dateAdded": "2026-05-21T05:15:17.9099245Z"
+    },
+    {
+      "id": 219916,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 11 - Boys Boys Boys.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 26506585,
+      "dateAdded": "2026-05-21T05:15:17.9260374Z"
+    },
+    {
+      "id": 219917,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 12 - Paper Gangsta.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 31445097,
+      "dateAdded": "2026-05-21T05:15:17.9450454Z"
+    },
+    {
+      "id": 219918,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 13 - Brown Eyes.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 27063678,
+      "dateAdded": "2026-05-21T05:15:17.9657347Z"
+    },
+    {
+      "id": 219919,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 14 - Summerboy.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 32131100,
+      "dateAdded": "2026-05-21T05:15:17.9847552Z"
+    },
+    {
+      "id": 219920,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 15 - Disco Heaven.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 27019791,
+      "dateAdded": "2026-05-21T05:15:18.0068365Z"
+    },
+    {
+      "id": 219921,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 16 - Again Again.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 23491084,
+      "dateAdded": "2026-05-21T05:15:18.0255902Z"
+    },
+    {
+      "id": 219922,
+      "path": "/mnt/plex/music/Lady Gaga/The Fame (2008)/CD 02/Lady Gaga - The Fame - 17 - Retro Dance Freak.flac",
+      "quality": "FLAC",
+      "qualityVersion": 1,
+      "size": 23344033,
+      "dateAdded": "2026-05-21T05:15:18.0444583Z"
+    }
+  ],
+  "isUpgrade": false,
+  "downloadClient": "qBittorrent",
+  "downloadClientType": "qBittorrent",
+  "downloadId": "5B46FAC249041FED84690FAF09CF2766551BBDD3",
+  "eventType": "Download",
+  "instanceName": "Lidarr",
+  "applicationUrl": ""
+}
