@@ -682,7 +682,7 @@ export function buildNotificationPayload(payload) {
     case 'ManualInteractionRequired':
       const statusMessage = payload.downloadStatusMessages?.find(
         item => item.messages && item.messages.length > 0
-      )?.messages[0] ?? payload?.downloadStatusMessages?.[0].title ?? null
+      )?.messages[0] ?? payload?.downloadStatusMessages?.[0]?.title ?? null
 
       return {
         aps: {

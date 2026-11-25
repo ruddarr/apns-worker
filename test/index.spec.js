@@ -2,6 +2,7 @@ import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:
 import { describe, it, expect } from 'vitest';
 import worker, { buildNotificationPayload } from '../src/worker';
 import episodeFileDelete from '../payloads/series-episode-file-delete.json';
+import manualInteraction from '../payloads/series-interaction-required.json';
 
 describe('worker', () => {
 	it('returns 400 for request with empty body', async () => {
@@ -47,5 +48,12 @@ describe('buildNotificationPayload', () => {
 
 		expect(aps.alert['loc-key']).toBe('NOTIFICATION_EPISODE_FILE_DELETED_BODY');
 		expect(aps.alert['loc-args']).toEqual(['The New Pope', '1', '1']);
+	});
+
+	it('falls back to the release title when a manual interaction has no status messages', () => {
+		const { aps } = buildNotificationPayload({ ...manualInteraction, downloadStatusMessages: [] });
+
+		expect(aps.alert.subtitle).toBeNull();
+		expect(aps.alert.body).toBe(manualInteraction.release.releaseTitle);
 	});
 });
