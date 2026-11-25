@@ -711,12 +711,26 @@ async function verifyWebhookSignature(env, headers, message) {
     return false
   }
 
-  const [_, password] = atob(bearer).split(':')
+  let password
+
+  try {
+    password = atob(bearer).split(':')[1]
+  } catch {
+    return false
+  }
 
   return await verifySignature(env, password, message)
 }
 
 async function verifySignature(env, signature, message) {
+  let signatureBytes
+
+  try {
+    signatureBytes = base64StringToArrayBuffer(signature)
+  } catch {
+    return false
+  }
+
   const encoder = new TextEncoder()
 
   const key = await crypto.subtle.importKey(
@@ -730,7 +744,7 @@ async function verifySignature(env, signature, message) {
   const verified = await crypto.subtle.verify(
     'HMAC',
     key,
-    base64StringToArrayBuffer(signature),
+    signatureBytes,
     encoder.encode(message)
   )
 
