@@ -1,6 +1,7 @@
 import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
 import { describe, it, expect } from 'vitest';
-import worker from '../src/worker';
+import worker, { buildNotificationPayload } from '../src/worker';
+import episodeFileDelete from '../payloads/series-episode-file-delete.json';
 
 describe('worker', () => {
 	it('returns 400 for request with empty body', async () => {
@@ -37,5 +38,14 @@ describe('worker', () => {
 		const response = await worker.fetch(request, env, ctx);
 		await waitOnExecutionContext(ctx);
 		expect(response.status).toBe(400);
+	});
+});
+
+describe('buildNotificationPayload', () => {
+	it('sends the series, season and episode for a deleted episode file', () => {
+		const { aps } = buildNotificationPayload({ ...episodeFileDelete, instanceName: 'Sonarr' });
+
+		expect(aps.alert['loc-key']).toBe('NOTIFICATION_EPISODE_FILE_DELETED_BODY');
+		expect(aps.alert['loc-args']).toEqual(['The New Pope', '1', '1']);
 	});
 });
