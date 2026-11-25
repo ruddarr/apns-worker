@@ -39,6 +39,48 @@ describe('worker', () => {
 		await waitOnExecutionContext(ctx);
 		expect(response.status).toBe(400);
 	});
+
+	async function webhook(authorization) {
+		const request = new Request(`http://example.com/push/${btoa('1700000001:' + 'a'.repeat(32))}`, {
+			method: 'POST',
+			body: JSON.stringify({ eventType: 'Grab' }),
+			headers: { 'content-type': 'application/json', authorization },
+		});
+
+		const ctx = createExecutionContext();
+		const response = await worker.fetch(request, { ...env, WEBHOOK_SECRET: 'secret' }, ctx);
+		await waitOnExecutionContext(ctx);
+
+		return { status: response.status, body: await response.json() };
+	}
+
+	it('returns 403 for a webhook signature that is not valid base64', async () => {
+		const { status, body } = await webhook(`Basic ${btoa('ruddarr:not*valid*base64')}`);
+		expect(status).toBe(403);
+		expect(body.message).toBe('invalid webhook signature');
+	});
+
+	it('returns 403 for webhook credentials without a password', async () => {
+		const { status, body } = await webhook(`Basic ${btoa('ruddarr')}`);
+		expect(status).toBe(403);
+		expect(body.message).toBe('invalid webhook signature');
+	});
+
+	it('returns 403 for a webhook Authorization header that is not valid base64', async () => {
+		const { status, body } = await webhook('Basic !!!');
+		expect(status).toBe(403);
+		expect(body.message).toBe('invalid webhook signature');
+	});
+
+	it('accepts a valid webhook signature', async () => {
+		const key = await crypto.subtle.importKey('raw', new TextEncoder().encode('secret'), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+		const mac = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`1700000001:${'a'.repeat(32)}`));
+		const signature = btoa(String.fromCharCode(...new Uint8Array(mac)));
+
+		const { status, body } = await webhook(`Basic ${btoa(`ruddarr:${signature}`)}`);
+		expect(status).toBe(410);
+		expect(body.message).toBe('webhook URL expired');
+	});
 });
 
 describe('buildNotificationPayload', () => {
