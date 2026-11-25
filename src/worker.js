@@ -304,7 +304,7 @@ async function generateAuthorizationToken(env) {
   return token
 }
 
-function buildNotificationPayload(payload) {
+export function buildNotificationPayload(payload) {
   const instanceName = payload.instanceName?.trim().length > 0 ? payload.instanceName : 'Unknown'
   const encodedInstanceName = encodeURIComponent(instanceName)
   const isMovie = payload.hasOwnProperty('movie')
@@ -484,7 +484,7 @@ function buildNotificationPayload(payload) {
             'title-loc-key': 'NOTIFICATION_EPISODE_FILE_DELETED',
             'title-loc-args': [instanceName],
             'loc-key': 'NOTIFICATION_EPISODE_FILE_DELETED_BODY',
-            'loc-args': [title, year],
+            'loc-args': [title, season, episode],
           },
           'sound': 'ping.aiff',
           'thread-id': `series:${threadId}`,
